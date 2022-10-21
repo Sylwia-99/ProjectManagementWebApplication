@@ -1,16 +1,16 @@
-login-form{
+register-form{
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    top: 8rem;
+    top: 5rem;
 
-    .login-container{
+    .register-container{
         display: flex;
         flex-direction:column;
         justify-content: center;
         align-self: center;
-        width: 35%;
+        width: 60%;
     }
 
     .form-container{
@@ -54,6 +54,4 @@ login-form{
         color:#ff0000;
         padding: 0 1.8rem ;
     }
-
-
 }

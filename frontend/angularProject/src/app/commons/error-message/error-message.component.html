@@ -1,0 +1,19 @@
+<div class="error-message">   
+    <div [hidden]="!control.hasError('pattern')">
+        <div *ngIf="controlName=='Hasło'; else otherFormControl">
+            Hasło musi składać sie z minimum 8 znaków i zawierać: małą/dużą literę, cyfrę oraz znak specjalny.
+        </div>
+       <ng-template #otherFormControl> Wprowadzono zły format {{controlName}}.</ng-template> 
+      </div>  
+    <div [hidden]="!control.hasError('minlength')">
+      {{controlName}} musi posiadać co najmniej 3 litery.
+    </div>
+    <div [hidden]="!control.hasError('required')">
+      To pole jest wymagane.
+    </div>
+    <div *ngIf="controlName=='confirmPassword'">
+        <div [hidden]="!control.hasError('confirmedValidator')">
+            Hasła się różnią
+        </div>    
+    </div>
+</div>
