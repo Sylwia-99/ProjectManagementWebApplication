@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginFormComponent } from './login-form/login-form.component';
 import { NavigationComponent } from './navigation/navigation.component';
 
 const routes: Routes = [{
@@ -22,7 +23,8 @@ const routes: Routes = [{
           import('./home/home.module').then(
             (m) => m.HomeModule
             ) 
-      }
+      },
+      { path: 'login', component: LoginFormComponent },
     ]
   }, 
   {

@@ -1,0 +1,40 @@
+<div class="login-container">
+    <div class="logo-container">
+        <img src="{{logo.src}}" alt="{{logo.alt}}"/>
+    </div>
+    <form [formGroup]="loginForm" class="form-container" (ngSubmit)="login()">
+        <label for="email" class= "form-label">Email</label>
+        <input 
+            class= "form-control" 
+            [ngClass]="{'form-control--invalid' : email.errors && isInvalidFlag}" 
+            type="email" 
+            name="email" 
+            id="email" 
+            [formControl]="email"
+        >
+        <div [hidden]="!isInvalidFlag" class="error-message">     
+            <div [hidden]="!email.hasError('pattern')">
+              Wprowadzono zły format email.
+            </div>
+            <div [hidden]="!email.hasError('required')">
+              Email jest wymagany.
+            </div>
+          </div>
+        <label for="password" class= "form-label">Hasło</label>
+        <input 
+            class= "form-control" 
+            [ngClass]="{'form-control--invalid' : password.errors && isInvalidFlag}" 
+            type="password" 
+            name="password" 
+            id="password" 
+            [formControl]="password"
+        >
+        <div [hidden]="!isInvalidFlag">     
+            <div [hidden]="!password.hasError('required')" class="error-message">
+              Hasło jest wymagane.
+            </div>
+        </div>
+        <button class="form-container-button" type="submit">Zaloguj się</button>
+    </form>
+    <button class="form-container-button" type="submit">Zarejestruj się</button>
+</div>
