@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
-import { LOGO, PATTERN } from 'src/constants/constants.data';
+import { PATTERN } from 'src/constants/constants.data';
 
 @Component({
   selector: 'login-form',
@@ -9,7 +10,6 @@ import { LOGO, PATTERN } from 'src/constants/constants.data';
 })
 export class LoginFormComponent  {
   readonly EMAIL_FORMAT = PATTERN.FORMAT.EMAIL;
-  readonly logo = LOGO;
 
   isInvalidFlag = false;
 
@@ -21,16 +21,22 @@ export class LoginFormComponent  {
     password: this.password
   });
 
-  constructor (private builder: FormBuilder) { }
+  constructor (private builder: FormBuilder, private router: Router) { }
 
   login() {
-    // Attempt Logging in...
     if(this.loginForm.valid){
       console.log(this.loginForm.value);
+      const navigationDetails: string[] = ['/home'];
+      this.router.navigate(navigationDetails)
     }
     else{
       this.isInvalidFlag = true;
     }
+  }
+
+  register() {
+    const navigationDetails: string[] = ['/register'];
+    this.router.navigate(navigationDetails)
   }
 
 }

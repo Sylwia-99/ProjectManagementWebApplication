@@ -1,40 +1,30 @@
 <div class="login-container">
-    <div class="logo-container">
-        <img 
-          src="{{logo.src}}" 
-          alt="{{logo.alt}}"
-        />
-    </div>
+    <logo-panel></logo-panel>
     <form 
-      class="form-container" 
-      [formGroup]="loginForm" 
+      class="form-container"
+      [formGroup]="loginForm"  
       (ngSubmit)="login()"
     >
-      <label 
-        class= "form-label"
-        for="email" 
-      >
-        Email
-      </label>
-        <input 
-            class= "form-control" 
-            id="email"
-            name="email" 
-            type="email" 
-            [formControl]="email"
-            [ngClass]="{'form-control--invalid' : email.errors && isInvalidFlag}" 
+        <label 
+          class= "form-label"
+          for="email" 
         >
-        <div
-          class="error-message" 
-          [hidden]="!isInvalidFlag" 
-        >     
-            <div [hidden]="!email.hasError('pattern')">
-              Wprowadzono zły format email.
-            </div>
-            <div [hidden]="!email.hasError('required')">
-              Email jest wymagany.
-            </div>
-          </div>
+          Email
+        </label>
+        <input 
+          class= "form-control" 
+          id="email" 
+          name="email" 
+          type="email" 
+          [formControl]="email"
+          [ngClass]="{'form-control--invalid' : email.errors && isInvalidFlag}" 
+        >
+        <error-message 
+            *ngIf="isInvalidFlag"
+            [control]="email"
+            [controlName]="'email'"
+        >
+        </error-message>
         <label 
           class= "form-label"
           for="password" 
@@ -42,30 +32,29 @@
           Hasło
         </label>
         <input 
-            class= "form-control" 
-            id="password" 
-            name="password" 
-            type="password" 
-            [formControl]="password"
-            [ngClass]="{'form-control--invalid' : password.errors && isInvalidFlag}" 
+          class= "form-control" 
+          id="password" 
+          name="password"
+          type="password"  
+          [formControl]="password"
+          [ngClass]="{'form-control--invalid' : password.errors && isInvalidFlag}" 
         >
-        <div [hidden]="!isInvalidFlag">     
-            <div 
-              class="error-message"
-              [hidden]="!password.hasError('required')" 
-            >
-              Hasło jest wymagane.
-            </div>
-        </div>
+        <error-message 
+          *ngIf="isInvalidFlag"
+          [control]="password"
+          [controlName]="'hasło'"
+        >
+        </error-message>
         <button 
           class="form-container-button" 
           type="submit"
-        > 
+        >
           Zaloguj się
         </button>
     </form>
     <button 
       class="form-container-button" 
+      (click)="register()"
       type="submit"
     >
       Zarejestruj się

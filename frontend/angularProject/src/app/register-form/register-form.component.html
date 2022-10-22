@@ -1,0 +1,115 @@
+<div class="register-container">
+    <logo-panel></logo-panel>
+    <form 
+        class="form-container"
+        [formGroup]="registerForm"  
+        (ngSubmit)="register()"
+    >
+        <label 
+            class= "form-label" 
+            for="name" 
+        >
+            Imię
+        </label>
+        <input 
+            class= "form-control" 
+            id="name" 
+            type="text" 
+            name="name" 
+            [formControl]="name"
+            [ngClass]="{'form-control--invalid' : name.errors && isInvalidFlag}" 
+        >
+        <error-message 
+            *ngIf="isInvalidFlag"
+            [control]="name"
+            [controlName]="'Imię'"
+        >
+        </error-message>
+        <label 
+            for="surname" 
+            class= "form-label"
+        >
+            Nazwisko
+        </label>
+        <input 
+            class= "form-control" 
+            id="surname" 
+            type="text" 
+            name="surname" 
+            [formControl]="surname"
+            [ngClass]="{'form-control--invalid' : surname.errors && isInvalidFlag}" 
+        >
+        <error-message 
+            *ngIf="isInvalidFlag"
+            [control]="surname"
+            [controlName]="'Nazwisko'"
+        >
+        </error-message>
+        <label 
+            class= "form-label"
+            for="email" 
+        >
+            Email
+        </label>
+        <input 
+            class= "form-control" 
+            id="email"
+            type="email" 
+            name="email"
+            [formControl]="email" 
+            [ngClass]="{'form-control--invalid' : email.errors && isInvalidFlag}" 
+        >
+        <error-message 
+            *ngIf="isInvalidFlag"
+            [control]="email"
+            [controlName]="'Email'"
+        >
+        </error-message>
+        <label  
+            class= "form-label" 
+            for="password"
+        >
+            Hasło
+        </label>
+        <input 
+            class= "form-control" 
+            id="password" 
+            type="password" 
+            name="password" 
+            [formControl]="password"
+            [ngClass]="{'form-control--invalid' : password.errors && isInvalidFlag}"            
+        >
+        <error-message 
+            *ngIf="isInvalidFlag"
+            [control]="password"
+            [controlName]="'Hasło'"
+        >
+        </error-message>
+        <label 
+            class= "form-label" 
+            for="confirmPassword" 
+        >
+            Powtórz hasło
+        </label>
+        <input 
+            class= "form-control" 
+            id="confirmPassword" 
+            type="password" 
+            name="confirmPassword" 
+            [formControl]="confirmPassword"
+            [ngClass]="{'form-control--invalid' : confirmPassword.errors && isInvalidFlag}" 
+        >
+        <error-message 
+            *ngIf="isInvalidFlag"
+            [control]="confirmPassword"
+            [controlName]="'confirmPassword'"
+        >
+        </error-message>
+        <button 
+            class="form-container-button" 
+            type="submit"
+        >
+            Zarejestruj się
+        </button>
+    </form>
+</div>
