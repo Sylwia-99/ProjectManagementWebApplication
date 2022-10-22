@@ -1,18 +1,33 @@
 <div class="login-container">
     <div class="logo-container">
-        <img src="{{logo.src}}" alt="{{logo.alt}}"/>
+        <img 
+          src="{{logo.src}}" 
+          alt="{{logo.alt}}"
+        />
     </div>
-    <form [formGroup]="loginForm" class="form-container" (ngSubmit)="login()">
-        <label for="email" class= "form-label">Email</label>
+    <form 
+      class="form-container" 
+      [formGroup]="loginForm" 
+      (ngSubmit)="login()"
+    >
+      <label 
+        class= "form-label"
+        for="email" 
+      >
+        Email
+      </label>
         <input 
             class= "form-control" 
-            [ngClass]="{'form-control--invalid' : email.errors && isInvalidFlag}" 
-            type="email" 
+            id="email"
             name="email" 
-            id="email" 
+            type="email" 
             [formControl]="email"
+            [ngClass]="{'form-control--invalid' : email.errors && isInvalidFlag}" 
         >
-        <div [hidden]="!isInvalidFlag" class="error-message">     
+        <div
+          class="error-message" 
+          [hidden]="!isInvalidFlag" 
+        >     
             <div [hidden]="!email.hasError('pattern')">
               Wprowadzono zły format email.
             </div>
@@ -20,21 +35,39 @@
               Email jest wymagany.
             </div>
           </div>
-        <label for="password" class= "form-label">Hasło</label>
+        <label 
+          class= "form-label"
+          for="password" 
+        >
+          Hasło
+        </label>
         <input 
             class= "form-control" 
-            [ngClass]="{'form-control--invalid' : password.errors && isInvalidFlag}" 
-            type="password" 
-            name="password" 
             id="password" 
+            name="password" 
+            type="password" 
             [formControl]="password"
+            [ngClass]="{'form-control--invalid' : password.errors && isInvalidFlag}" 
         >
         <div [hidden]="!isInvalidFlag">     
-            <div [hidden]="!password.hasError('required')" class="error-message">
+            <div 
+              class="error-message"
+              [hidden]="!password.hasError('required')" 
+            >
               Hasło jest wymagane.
             </div>
         </div>
-        <button class="form-container-button" type="submit">Zaloguj się</button>
+        <button 
+          class="form-container-button" 
+          type="submit"
+        > 
+          Zaloguj się
+        </button>
     </form>
-    <button class="form-container-button" type="submit">Zarejestruj się</button>
+    <button 
+      class="form-container-button" 
+      type="submit"
+    >
+      Zarejestruj się
+    </button>
 </div>
