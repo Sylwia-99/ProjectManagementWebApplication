@@ -1,14 +1,23 @@
 <div class="login-container">
     <logo-panel></logo-panel>
-    <form [formGroup]="loginForm" class="form-container" (ngSubmit)="login()">
-        <label for="email" class= "form-label">Email</label>
+    <form 
+      class="form-container"
+      [formGroup]="loginForm"  
+      (ngSubmit)="login()"
+    >
+        <label 
+          class= "form-label"
+          for="email" 
+        >
+          Email
+        </label>
         <input 
-            class= "form-control" 
-            [ngClass]="{'form-control--invalid' : email.errors && isInvalidFlag}" 
-            type="email" 
-            name="email" 
-            id="email" 
-            [formControl]="email"
+          class= "form-control" 
+          id="email" 
+          name="email" 
+          type="email" 
+          [formControl]="email"
+          [ngClass]="{'form-control--invalid' : email.errors && isInvalidFlag}" 
         >
         <error-message 
             *ngIf="isInvalidFlag"
@@ -16,22 +25,37 @@
             [controlName]="'email'"
         >
         </error-message>
-        <label for="password" class= "form-label">Hasło</label>
+        <label 
+          class= "form-label"
+          for="password" 
+        >
+          Hasło
+        </label>
         <input 
-            class= "form-control" 
-            [ngClass]="{'form-control--invalid' : password.errors && isInvalidFlag}" 
-            type="password" 
-            name="password" 
-            id="password" 
-            [formControl]="password"
+          class= "form-control" 
+          id="password" 
+          name="password"
+          type="password"  
+          [formControl]="password"
+          [ngClass]="{'form-control--invalid' : password.errors && isInvalidFlag}" 
         >
         <error-message 
-        *ngIf="isInvalidFlag"
-        [control]="password"
-        [controlName]="'hasło'"
+          *ngIf="isInvalidFlag"
+          [control]="password"
+          [controlName]="'hasło'"
         >
         </error-message>
-        <button class="form-container-button" type="submit">Zaloguj się</button>
+        <button 
+          class="form-container-button" 
+          type="submit"
+        >
+          Zaloguj się
+        </button>
     </form>
-    <button class="form-container-button" (click)="register()">Zarejestruj się</button>
+    <button 
+      class="form-container-button" 
+      (click)="register()"
+    >
+      Zarejestruj się
+    </button>
 </div>

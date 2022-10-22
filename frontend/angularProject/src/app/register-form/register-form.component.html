@@ -1,14 +1,23 @@
 <div class="register-container">
     <logo-panel></logo-panel>
-    <form [formGroup]="registerForm" class="form-container" (ngSubmit)="register()">
-        <label for="name" class= "form-label">Imię</label>
+    <form 
+        class="form-container"
+        [formGroup]="registerForm"  
+        (ngSubmit)="register()"
+    >
+        <label 
+            class= "form-label" 
+            for="name" 
+        >
+            Imię
+        </label>
         <input 
             class= "form-control" 
-            [ngClass]="{'form-control--invalid' : name.errors && isInvalidFlag}" 
+            id="name" 
             type="text" 
             name="name" 
-            id="name" 
             [formControl]="name"
+            [ngClass]="{'form-control--invalid' : name.errors && isInvalidFlag}" 
         >
         <error-message 
             *ngIf="isInvalidFlag"
@@ -16,14 +25,19 @@
             [controlName]="'Imię'"
         >
         </error-message>
-        <label for="surname" class= "form-label">Nazwisko</label>
+        <label 
+            for="surname" 
+            class= "form-label"
+        >
+            Nazwisko
+        </label>
         <input 
             class= "form-control" 
-            [ngClass]="{'form-control--invalid' : surname.errors && isInvalidFlag}" 
+            id="surname" 
             type="text" 
             name="surname" 
-            id="surname" 
             [formControl]="surname"
+            [ngClass]="{'form-control--invalid' : surname.errors && isInvalidFlag}" 
         >
         <error-message 
             *ngIf="isInvalidFlag"
@@ -31,14 +45,19 @@
             [controlName]="'Nazwisko'"
         >
         </error-message>
-        <label for="email" class= "form-label">Email</label>
+        <label 
+            class= "form-label"
+            for="email" 
+        >
+            Email
+        </label>
         <input 
             class= "form-control" 
-            [ngClass]="{'form-control--invalid' : email.errors && isInvalidFlag}" 
+            id="email"
             type="email" 
-            name="email" 
-            id="email" 
-            [formControl]="email"
+            name="email"
+            [formControl]="email" 
+            [ngClass]="{'form-control--invalid' : email.errors && isInvalidFlag}" 
         >
         <error-message 
             *ngIf="isInvalidFlag"
@@ -46,14 +65,19 @@
             [controlName]="'Email'"
         >
         </error-message>
-        <label for="password" class= "form-label">Hasło</label>
+        <label  
+            class= "form-label" 
+            for="password"
+        >
+            Hasło
+        </label>
         <input 
             class= "form-control" 
-            [ngClass]="{'form-control--invalid' : password.errors && isInvalidFlag}" 
+            id="password" 
             type="password" 
             name="password" 
-            id="password" 
             [formControl]="password"
+            [ngClass]="{'form-control--invalid' : password.errors && isInvalidFlag}"            
         >
         <error-message 
             *ngIf="isInvalidFlag"
@@ -61,14 +85,19 @@
             [controlName]="'Hasło'"
         >
         </error-message>
-        <label for="confirmPassword" class= "form-label">Powtórz hasło</label>
+        <label 
+            class= "form-label" 
+            for="confirmPassword" 
+        >
+            Powtórz hasło
+        </label>
         <input 
             class= "form-control" 
-            [ngClass]="{'form-control--invalid' : confirmPassword.errors && isInvalidFlag}" 
+            id="confirmPassword" 
             type="password" 
             name="confirmPassword" 
-            id="confirmPassword" 
             [formControl]="confirmPassword"
+            [ngClass]="{'form-control--invalid' : confirmPassword.errors && isInvalidFlag}" 
         >
         <error-message 
             *ngIf="isInvalidFlag"
@@ -76,6 +105,11 @@
             [controlName]="'confirmPassword'"
         >
         </error-message>
-        <button class="form-container-button" type="submit">Zarejestruj się</button>
+        <button 
+            class="form-container-button" 
+            type="submit"
+        >
+            Zarejestruj się
+        </button>
     </form>
 </div>
