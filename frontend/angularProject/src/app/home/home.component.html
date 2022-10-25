@@ -1,1 +1,29 @@
-<div><app-header></app-header></div>
+<div>
+    <app-header></app-header>
+    <div class="container">
+        <button class="create-workspace-button"> Utwórz przestrzeń roboczą </button>
+        <button class="workspace-button"> <i class="material-icons">arrow_drop_down</i> Twoje przetrzenie robocze </button>
+        <div class="workspace-list">
+            <li *ngFor="let card of workspace">
+                <div class="workspace-card">
+                    <div class="card-header">
+                        <div class="card-name">
+                            {{card.name}}
+                        </div>
+                        <button [matMenuTriggerFor]="menu">
+                            <img src="{{dots.src}}" alt="{{dots.alt}}">
+                          </button>
+                          <mat-menu #menu="matMenu">
+                            <button mat-menu-item>
+                                Product Backlog
+                            </button>
+                          </mat-menu>
+                    </div>
+                    <div class="card-description">
+                        {{card.description}}
+                    </div>
+                </div>
+            </li>
+        </div>
+    </div>
+</div>

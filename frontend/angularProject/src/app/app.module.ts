@@ -10,7 +10,7 @@ import { RegisterFormComponent } from './register-form/register-form.component';
 import { LogoPanelComponent } from './commons/logo-panel/logo-panel.component';
 import { ErrorMessageComponent } from './commons/error-message/error-message.component';
 import { HomeModule } from './home/home.module';
-import { AppHeaderComponent } from './commons/app-header/app-header.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -19,20 +19,15 @@ import { AppHeaderComponent } from './commons/app-header/app-header.component';
     RegisterFormComponent,
     LogoPanelComponent,
     ErrorMessageComponent,
-    AppHeaderComponent
   ],
   imports: [
     AppRoutingModule, 
     BrowserModule,
     NavigationModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule, BrowserAnimationsModule
   ],
   bootstrap: [AppComponent],
-  exports: [    AppComponent,
-    LoginFormComponent,
-    RegisterFormComponent,
-    LogoPanelComponent,
-    ErrorMessageComponent,
-    AppHeaderComponent]
+  exports: [    
+  ]
 })
 export class AppModule { }

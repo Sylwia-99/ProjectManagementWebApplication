@@ -1,3 +1,14 @@
-<div>   
- xDDDDDDDD
+<div class="content">   
+    <img src="{{logo.src}}" alt="{{logo.alt}}"/>
+    <button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <img src="{{profile.src}}" alt="{{profile.alt}}">
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+            Profil
+        </button>
+        <button mat-menu-item>
+            Wyloguj
+        </button>
+      </mat-menu>
 </div>
