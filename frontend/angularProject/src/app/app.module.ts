@@ -9,6 +9,8 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { LogoPanelComponent } from './commons/logo-panel/logo-panel.component';
 import { ErrorMessageComponent } from './commons/error-message/error-message.component';
+import { HomeModule } from './home/home.module';
+import { AppHeaderComponent } from './commons/app-header/app-header.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { ErrorMessageComponent } from './commons/error-message/error-message.com
     LoginFormComponent,
     RegisterFormComponent,
     LogoPanelComponent,
-    ErrorMessageComponent
+    ErrorMessageComponent,
+    AppHeaderComponent
   ],
   imports: [
     AppRoutingModule, 
@@ -24,7 +27,12 @@ import { ErrorMessageComponent } from './commons/error-message/error-message.com
     NavigationModule, 
     ReactiveFormsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [    AppComponent,
+    LoginFormComponent,
+    RegisterFormComponent,
+    LogoPanelComponent,
+    ErrorMessageComponent,
+    AppHeaderComponent]
 })
 export class AppModule { }
