@@ -1,6 +1,7 @@
 home{
     li {
         list-style-type: none;
+        transition: all 0.4s ease-out;
     }
 
     img {
@@ -49,7 +50,7 @@ home{
 
     .workspace-list{
         background-color: #d8e4f4;
-        min-height: 5vh;
+        min-height: 0;
         max-height: 70vh;
         width: 96vw;
         border: 0;
@@ -71,11 +72,20 @@ home{
         color: #175DC8;
         text-align: center;
         font-weight: bold;
+        min-height:0;
         padding: 2rem 0;
+
         mat-icon{
             position: relative;
             top: 0.4rem;
         }
+    }
+
+    .workspace-invisible{
+        color: #175DC8;
+        text-align: center;
+        font-weight: bold;
+        min-height:0;
     }
 
     .card-header{

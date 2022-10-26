@@ -12,6 +12,8 @@ export class HomeComponent implements OnInit {
   readonly dots = DOTS;
   
   workspace: Workspace[] = [];
+
+  isWorkspaceVisible = true;
   
   constructor(private homeService: HomeService){}
 
@@ -20,4 +22,8 @@ export class HomeComponent implements OnInit {
       this.workspace = res.WORK_SPACE;
     })
 	}
+
+  toggleWorkspaceVisibility(): void{
+    this.isWorkspaceVisible = !this.isWorkspaceVisible
+  }
 }

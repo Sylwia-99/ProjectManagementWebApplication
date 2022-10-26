@@ -2,12 +2,19 @@
     <app-header></app-header>
     <div class="container">
         <button class="create-workspace-button"> Utwórz przestrzeń roboczą </button>
-        <button class="workspace-button"> <i class="material-icons">arrow_drop_down</i> Twoje przetrzenie robocze </button>
+        <button class="workspace-button" (click)="toggleWorkspaceVisibility()"> 
+            <i *ngIf="isWorkspaceVisible" class="material-icons">arrow_drop_down</i>
+            <i *ngIf="!isWorkspaceVisible" class="material-icons">arrow_drop_up</i> 
+            Twoje przetrzenie robocze 
+        </button>
+
         <div class="workspace-list">
 
-            <div *ngIf="workspace.length===0;else workspaceList" class="workspace-empty">
-                <mat-icon>cancel</mat-icon> Brak przestrzeni roboczych
-            </div>     
+            <div *ngIf="workspace.length===0 || !isWorkspaceVisible;else workspaceList" [ngClass]="!isWorkspaceVisible ? 'workspace-invisible' : 'workspace-empty'">
+                <div *ngIf="isWorkspaceVisible">
+                    <mat-icon>cancel</mat-icon> Brak przestrzeni roboczych
+                </div>
+            </div>
 
             <ng-template #workspaceList>
                 <li *ngFor="let card of workspace">
