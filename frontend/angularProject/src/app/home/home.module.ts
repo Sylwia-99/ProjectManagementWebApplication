@@ -11,12 +11,12 @@ import { HomeComponent } from './home.component';
 
 @NgModule({
   declarations: [
-    HomeComponent,
-    AppHeaderComponent
+    AppHeaderComponent,
+    HomeComponent
   ],
   imports: [
-    HomeRoutingModule,
     CommonModule,
+    HomeRoutingModule,
     MatIconModule,
     MatMenuModule
   ],

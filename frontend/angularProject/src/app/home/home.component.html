@@ -4,26 +4,34 @@
         <button class="create-workspace-button"> Utwórz przestrzeń roboczą </button>
         <button class="workspace-button"> <i class="material-icons">arrow_drop_down</i> Twoje przetrzenie robocze </button>
         <div class="workspace-list">
-            <li *ngFor="let card of workspace">
-                <div class="workspace-card">
-                    <div class="card-header">
-                        <div class="card-name">
-                            {{card.name}}
+
+            <div *ngIf="workspace.length===0;else workspaceList" class="workspace-empty">
+                <mat-icon>cancel</mat-icon> Brak przestrzeni roboczych
+            </div>     
+
+            <ng-template #workspaceList>
+                <li *ngFor="let card of workspace">
+                    <div class="workspace-card">
+                        <div class="card-header">
+                            <div class="card-name">
+                                {{card.name}}
+                            </div>
+                            <button [matMenuTriggerFor]="menu">
+                                <img src="{{dots.src}}" alt="{{dots.alt}}">
+                              </button>
+                              <mat-menu #menu="matMenu">
+                                <button mat-menu-item>
+                                    Product Backlog
+                                </button>
+                              </mat-menu>
                         </div>
-                        <button [matMenuTriggerFor]="menu">
-                            <img src="{{dots.src}}" alt="{{dots.alt}}">
-                          </button>
-                          <mat-menu #menu="matMenu">
-                            <button mat-menu-item>
-                                Product Backlog
-                            </button>
-                          </mat-menu>
+                        <div class="card-description">
+                            {{card.description}}
+                        </div>
                     </div>
-                    <div class="card-description">
-                        {{card.description}}
-                    </div>
-                </div>
-            </li>
+                </li>
+            </ng-template>
+
         </div>
     </div>
 </div>

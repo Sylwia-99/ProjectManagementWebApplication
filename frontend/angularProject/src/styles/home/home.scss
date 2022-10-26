@@ -4,7 +4,7 @@ home{
     }
 
     img {
-        height: 12px;
+        height: 0.8rem;
         width: auto;
     }
 
@@ -49,7 +49,7 @@ home{
 
     .workspace-list{
         background-color: #d8e4f4;
-        min-height: 70vh;
+        min-height: 5vh;
         max-height: 70vh;
         width: 96vw;
         border: 0;
@@ -65,6 +65,17 @@ home{
         border-radius: 1rem;
         padding: 1rem;
         margin: 0.7rem 0.5rem;
+    }
+
+    .workspace-empty{
+        color: #175DC8;
+        text-align: center;
+        font-weight: bold;
+        padding: 2rem 0;
+        mat-icon{
+            position: relative;
+            top: 0.4rem;
+        }
     }
 
     .card-header{

@@ -9,7 +9,6 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { LogoPanelComponent } from './commons/logo-panel/logo-panel.component';
 import { ErrorMessageComponent } from './commons/error-message/error-message.component';
-import { HomeModule } from './home/home.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -23,11 +22,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     AppRoutingModule, 
     BrowserModule,
+    BrowserAnimationsModule,
     NavigationModule, 
-    ReactiveFormsModule, BrowserAnimationsModule
+    ReactiveFormsModule
   ],
-  bootstrap: [AppComponent],
-  exports: [    
-  ]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
