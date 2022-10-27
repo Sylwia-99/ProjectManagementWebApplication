@@ -1,5 +1,6 @@
 package com.example.projectmanagmentapplication.workspace.sprint.entity;
 
+import com.example.projectmanagmentapplication.workspace.issue.entity.Issue;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,6 +10,8 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -28,6 +31,10 @@ public class Sprint {
     private LocalDateTime startDate;
 
     private LocalDateTime endDate;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "sprint_id")
+    private List<Issue> issues = new ArrayList<>();
 
     @CreatedDate
     private LocalDateTime createdAt;
