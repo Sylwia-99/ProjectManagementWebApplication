@@ -9,6 +9,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { LogoPanelComponent } from './commons/logo-panel/logo-panel.component';
 import { ErrorMessageComponent } from './commons/error-message/error-message.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -16,15 +17,15 @@ import { ErrorMessageComponent } from './commons/error-message/error-message.com
     LoginFormComponent,
     RegisterFormComponent,
     LogoPanelComponent,
-    ErrorMessageComponent
+    ErrorMessageComponent,
   ],
   imports: [
     AppRoutingModule, 
     BrowserModule,
+    BrowserAnimationsModule,
     NavigationModule, 
     ReactiveFormsModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

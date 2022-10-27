@@ -10,3 +10,13 @@ export const LOGO = {
     src: "../img/name.png",
     alt: "logo-image"
 }
+
+export const PROFILE = {
+    src: "../img/profile.png",
+    alt: "profile-image"
+}
+
+export const DOTS = {
+    src: "../img/dots.png",
+    alt: "dots-image"
+}
