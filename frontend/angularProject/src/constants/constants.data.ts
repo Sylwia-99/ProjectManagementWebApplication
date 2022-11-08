@@ -20,3 +20,11 @@ export const DOTS = {
     src: "../img/dots.png",
     alt: "dots-image"
 }
+
+export const LOCAL_STORAGE = {
+    USERNAME: 'USERNAME',
+};
+
+export const SESSIONS_STORAGE = {
+    USERNAME: LOCAL_STORAGE.USERNAME,
+}; 

@@ -1,7 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
-import { PROFILE } from 'src/constants/constants.data';
-import { LOGO } from 'src/constants/constants.data';
+import {LOGO, PROFILE } from 'src/constants/constants.data';
 
 @Component({
   selector: 'app-header',
@@ -11,4 +10,6 @@ export class AppHeaderComponent {
   readonly profile = PROFILE;
 
   readonly logo = LOGO;
+
+  @Output() logout = new EventEmitter();
 }
