@@ -1,7 +1,7 @@
 <div class="content">   
     <img src="{{logo.src}}" alt="{{logo.alt}}"/>
     <button aria-label="Example icon-button with a menu" [matMenuTriggerFor]="menu">
-        <img src="{{profile.src}}" alt="{{profile.alt}}">
+        <img src="{{profile.src}}" alt="{{profile.alt}}" (click)="logout.emit()">
       </button>
       <mat-menu #menu="matMenu">
         <button mat-menu-item>
