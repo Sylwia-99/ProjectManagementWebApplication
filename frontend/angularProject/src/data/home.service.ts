@@ -12,6 +12,7 @@ export class HomeService {
 			subscriber.next({
 				WORK_SPACE
 			});
+
 			subscriber.complete();
 		});
 	}

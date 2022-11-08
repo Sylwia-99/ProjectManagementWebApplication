@@ -1,27 +1,18 @@
 {
   "name": "angular-project",
   "version": "0.0.0",
-  "keywords": [
-    "angular",
-    "authentication",
-    "authorization",
-    "keycloak",
-    "keycloak-js"
-  ],
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng npm run clean && ng build keycloak-angular --configuration production",
+    "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "lint": "ng lint && prettier -c .",
-    "lint:fix": "prettier --write ."
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "^14.2.0",
     "@angular/cdk": "~14.2.5",
-    "@angular/common": "^14.2.5",
+    "@angular/common": "^14.2.0",
     "@angular/compiler": "^14.2.0",
     "@angular/core": "^14.2.0",
     "@angular/forms": "^14.2.0",
@@ -29,8 +20,6 @@
     "@angular/platform-browser": "^14.2.0",
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
-    "keycloak-angular": "^12.1.0",
-    "keycloak-js": "^19.0.3",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

@@ -5,5 +5,5 @@ import { Component, HostBinding } from '@angular/core';
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  title = 'Plannergy';
+  title = 'angularProject';
 }
