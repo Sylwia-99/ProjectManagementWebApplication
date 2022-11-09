@@ -44,7 +44,7 @@ export class KeycloakGuard extends KeycloakAuthGuard {
 	}
 
 	private checkUserRoles(route: ActivatedRouteSnapshot) {
-        console.log(route.data)
+        console.log(route)
 		const requiredRoles: string[] = route.data['roles'];
 		const keycloakLogic = route.data['keycloakLogic'] || 'and';
 
