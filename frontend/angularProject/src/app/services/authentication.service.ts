@@ -47,7 +47,7 @@ export class AuthenticationService extends KeycloakService {
 	}
 
 	override logout(
-		redirectUri: string = `${window.location.origin}/login`
+		redirectUri: string = `${window.location.origin}`
 	): Promise<void> {
 		return super.logout(redirectUri);
 	}

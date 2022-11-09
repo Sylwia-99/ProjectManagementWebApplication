@@ -10,7 +10,7 @@ const routes: Routes = [{
   path: '',
   canActivate: [KeycloakGuard],
   data: {
-    roles: ['user'],
+    roles: ['user', 'admin'],
     keycloakLogic: 'or',
   },
   resolve: {UserSettingResolver},
@@ -30,8 +30,8 @@ const routes: Routes = [{
                 (m) => m.HomeModule
                 ) 
           },
-          { path: 'login', component: LoginFormComponent },
-          { path: 'register', component: RegisterFormComponent },
+          //{ path: 'login', component: LoginFormComponent },
+          //{ path: 'register', component: RegisterFormComponent },
         ]
       }
     ]

@@ -26,6 +26,7 @@ export class KeycloakGuard extends KeycloakAuthGuard {
 		return new Promise((resolve, reject) => {
 			if (!this.authenticated) {
 				const redirectUri = window.location.origin + state.url;
+				console.log(redirectUri)
 				this.authenticationService.login({ redirectUri });
 
 				resolve(false);
@@ -43,7 +44,7 @@ export class KeycloakGuard extends KeycloakAuthGuard {
 	}
 
 	private checkUserRoles(route: ActivatedRouteSnapshot) {
-        console.log(route)
+        console.log(route.data)
 		const requiredRoles: string[] = route.data['roles'];
 		const keycloakLogic = route.data['keycloakLogic'] || 'and';
 
