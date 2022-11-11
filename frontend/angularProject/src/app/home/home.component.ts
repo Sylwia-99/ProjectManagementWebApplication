@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Workspace } from 'src/interfaces/workspace';
 import { DOTS } from 'src/constants/constants.data';
 import { HomeService } from "../../data/home.service"
+import { MatDialog } from '@angular/material/dialog';
+import { WorkSpaceModalComponent } from '../work-space-modal/work-space-modal.component';
 
 @Component({
   selector: 'home',
@@ -15,7 +17,10 @@ export class HomeComponent implements OnInit {
 
   isWorkspaceVisible = true;
   
-  constructor(private homeService: HomeService){}
+  constructor(
+    private homeService: HomeService, 
+    public dialogRef: MatDialog
+    ){}
 
 	ngOnInit(): void {
     this.homeService.getUserWorkSpace(["user-id"]).subscribe((res:any)=>{
@@ -25,5 +30,10 @@ export class HomeComponent implements OnInit {
 
   toggleWorkspaceVisibility(): void{
     this.isWorkspaceVisible = !this.isWorkspaceVisible
+  }
+
+
+  createWorkSpace(): void{
+    this.dialogRef.open(WorkSpaceModalComponent);
   }
 }

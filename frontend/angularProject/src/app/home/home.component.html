@@ -1,7 +1,7 @@
 <div>
     <app-header></app-header>
     <div class="container">
-        <button class="create-workspace-button"> Utwórz przestrzeń roboczą </button>
+        <button class="create-workspace-button" (click)="createWorkSpace()"> Utwórz przestrzeń roboczą </button>
         <button class="workspace-button" (click)="toggleWorkspaceVisibility()"> 
             <i *ngIf="isWorkspaceVisible" class="material-icons">arrow_drop_down</i>
             <i *ngIf="!isWorkspaceVisible" class="material-icons">arrow_drop_up</i> 
