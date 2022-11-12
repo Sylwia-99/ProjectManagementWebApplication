@@ -34,6 +34,9 @@ export class HomeComponent implements OnInit {
 
 
   createWorkSpace(): void{
-    this.dialogRef.open(WorkSpaceModalComponent);
+    this.dialogRef.open(WorkSpaceModalComponent, {
+      width:'60vw',  
+      height:'55vh',
+    });
   }
 }

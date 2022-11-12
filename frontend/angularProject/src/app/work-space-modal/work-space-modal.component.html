@@ -1,20 +1,33 @@
-<h2 mat-dialog-title>Utworz przestrzen robocza</h2>
+<button class="close-button" mat-button (click)="close()">X</button>
+<h2 mat-dialog-title class="title">UTWÓRZ PRZESTRZEŃ ROBOCZĄ</h2>
 
 <mat-dialog-content [formGroup]="workSpaceForm">
-  
-    <mat-form-field>
-        <input matInput
-            placeholder="Nazwa przestzreni roboczej"
-            formControlName="name">
-    </mat-form-field>
-    <mat-form-field>
-        <input matInput
-            placeholder="Opis"
-            formControlName="description">
-    </mat-form-field>
+    <div class="row">
+        <label 
+            for="name" 
+            class= "form-label"
+        >
+            Nazwa przestrzeni roboczej
+        </label>
+        <mat-form-field appearance="fill">
+            <input           
+                matInput
+                formControlName="name">
+        </mat-form-field>
+        <label 
+            for="description" 
+            class= "form-label"
+        >
+            Opis            
+        </label>
+        <mat-form-field appearance="fill" class="description">
+            <input           
+                matInput
+                formControlName="description">
+        </mat-form-field>
+    </div>
 </mat-dialog-content>
 
 <mat-dialog-actions>
-    <button class="mat-raised-button"(click)="close()">Zamknij</button>
-    <button class="mat-raised-button mat-primary"(click)="save()">Zapisz</button>
+    <button class="form-container-button" (click)="save()"> Zapisz  </button>
 </mat-dialog-actions>

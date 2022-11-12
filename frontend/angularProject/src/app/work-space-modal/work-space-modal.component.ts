@@ -16,8 +16,8 @@ export class WorkSpaceModalComponent {
 
   isInvalidFlag = false;
 
-  name = new FormControl('', [Validators.required]);
-  description = new FormControl('', [Validators.required]);
+  name = new FormControl('');
+  description = new FormControl('');
   
   workSpaceForm: FormGroup = this.builder.group({
     name: this.name,
