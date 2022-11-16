@@ -1,6 +1,10 @@
 import { Component, Inject } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { WORK_SPACE } from 'src/core/_database/work-space';
+
+import { WorkspaceService } from 'src/data/work-space.service';
+import { WorkSpaceCreateRequest } from 'src/interfaces/workspace';
 
 @Component({
   selector: 'work-space-modal',
@@ -11,8 +15,10 @@ export class WorkSpaceModalComponent {
     @Inject(MAT_DIALOG_DATA) public data: any,    
     public dialogRef: MatDialogRef<WorkSpaceModalComponent>, 
     private builder: FormBuilder,
+    private workspaceService: WorkspaceService
   ) { }
 
+  workspacelist = WORK_SPACE;
 
   isInvalidFlag = false;
 
@@ -27,6 +33,14 @@ export class WorkSpaceModalComponent {
   save() {
     if(this.workSpaceForm.valid){
       console.log(this.workSpaceForm.value);
+      let workSpaceCreateRequest: WorkSpaceCreateRequest = this.workSpaceForm.value
+      this.workspaceService.createUserWorkSpace(workSpaceCreateRequest,["user-id"])
+        .subscribe(workspace =>  
+          {
+            console.log((workspace)); 
+            this.dialogRef.close(workspace);
+          }
+      );
     }
     else{
       this.isInvalidFlag = true;

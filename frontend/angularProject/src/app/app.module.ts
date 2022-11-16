@@ -13,6 +13,7 @@ import { LogoPanelComponent } from './commons/logo-panel/logo-panel.component';
 import { ErrorMessageComponent } from './commons/error-message/error-message.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WorkSpaceModalComponent } from './work-space-modal/work-space-modal.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { WorkSpaceModalComponent } from './work-space-modal/work-space-modal.com
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    HttpClientModule,
     MatDialogModule, 
     MatInputModule,
     NavigationModule, 
@@ -35,7 +37,7 @@ import { WorkSpaceModalComponent } from './work-space-modal/work-space-modal.com
   ],
   bootstrap: [AppComponent],
   providers: [
-    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}},
   ]
 })
 export class AppModule { }
