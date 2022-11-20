@@ -12,4 +12,27 @@ app-header{
         width: auto;
         margin: 0 2vw 0 2vw;
     }
+
+    .header-buttons{
+        width: 50vw;
+    }
+
+    .app-header-button{
+        color: white;
+        text-align: center;
+        font-size: 1.1rem;
+        padding: 0.7rem;
+        margin-left: 0 1.5vw;
+        border-radius: 2rem;
+
+        &__current-page{
+            color: white;
+            text-align: center;
+            font-size: 1.1rem;
+            padding: 0.7rem;
+            margin-left: 0 1.5vw;
+            border-radius: 2rem;
+            background-color: #1c8de5;
+        }
+    }
 }
