@@ -11,13 +11,7 @@ import { WorkSpaceCreateRequest } from 'src/interfaces/workspace';
   templateUrl: './work-space-modal.component.html',
 })
 export class WorkSpaceModalComponent {
-  constructor(
-    @Inject(MAT_DIALOG_DATA) public data: any,    
-    public dialogRef: MatDialogRef<WorkSpaceModalComponent>, 
-    private builder: FormBuilder,
-    private workspaceService: WorkspaceService
-  ) { }
-
+  
   workspacelist = WORK_SPACE;
 
   isInvalidFlag = false;
@@ -29,6 +23,13 @@ export class WorkSpaceModalComponent {
     name: this.name,
     description: this.description
   });
+
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: any,    
+    public dialogRef: MatDialogRef<WorkSpaceModalComponent>, 
+    private builder: FormBuilder,
+    private workspaceService: WorkspaceService
+  ) { }
 
   save() {
     if(this.workSpaceForm.valid){
