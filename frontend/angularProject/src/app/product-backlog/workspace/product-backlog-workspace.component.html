@@ -12,7 +12,7 @@
         {{ productBacklog.name }}
       </div>
 
-      <button [matMenuTriggerFor]="menu" class="product-backlog-dots">
+      <button class="product-backlog-dots" [matMenuTriggerFor]="menu">
         <img src="{{ dots.src }}" alt="{{ dots.alt }}" />
       </button>
       <mat-menu #menu="matMenu">

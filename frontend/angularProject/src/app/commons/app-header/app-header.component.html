@@ -3,26 +3,26 @@
 
   <div class="header-buttons">
     <a
+      routerLink="/home"
       [ngClass]="{
         'app-header-button__current-page': router.url === '/home',
         'app-header-button': router.url !== '/home'
       }"
-      routerLink="/home"
       >Strona główna
     </a>
     <a
+      routerLink="/product-backlog"
       [ngClass]="{
         'app-header-button__current-page': router.url === '/product-backlog',
         'app-header-button': router.url !== '/product-backlog'
       }"
-      routerLink="/product-backlog"
       >Product Backlog</a
     >
   </div>
   <button
-    [matMenuTriggerFor]="menu"
     class="avatar-img"
     aria-label="Example icon-button with a menu"
+    [matMenuTriggerFor]="menu"
   >
     <img src="{{ profile.src }}" alt="{{ profile.alt }}" />
   </button>
