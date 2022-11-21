@@ -1,0 +1,72 @@
+product-backlog-workspace{
+    .product-backlog-content{
+        background-color: #d8e4f4;
+        min-height: 0;
+        max-height: 70vh;
+        width: 96vw;
+        border: 0;
+        border-radius: 1rem;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+    
+    .product-backlog-button{
+        background-color: #175DC8;
+        color: white;
+        min-width: 12rem;
+        border: 0em;
+        padding: 0.2rem 1.4rem 0.5rem 1rem;
+        margin: 2vh auto 0.5rem 2vw;
+        border-radius: 2em;
+        font-size: 1.2em !important;
+        align-self: start;
+        display: flex;
+    
+        i{
+            position:relative;
+            top:5px;
+        }
+    }
+
+    .sprint-label{
+        background-color: #175DC8;
+        color: white;
+        min-width: 12rem;
+        border: 0em;
+        padding: 0.2rem 1.4rem 0.5rem 1rem;
+        margin: 1vh auto 1vh 1vw;
+        border-radius: 2em;
+        font-size: 1.2em !important;
+        align-self: start;
+    }
+
+
+    .product-backolg-invisible{
+        color: #175DC8;
+        text-align: center;
+        font-weight: bold;
+        min-height:0;
+        padding: 2rem 0;
+
+        mat-icon{
+            position: relative;
+            top: 0.4rem;
+        }
+    }
+
+    .product-backlog-dots{
+        position: relative;
+        top: 0.7rem;
+        margin: 0 1rem;
+    }
+
+    .product-backlog-dots > img{
+        filter: invert(100%) sepia(0%) saturate(6676%) hue-rotate(183deg) brightness(97%) contrast(102%);
+    }
+
+    ul{
+        padding-left: 0;
+    }
+}

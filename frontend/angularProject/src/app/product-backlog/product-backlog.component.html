@@ -1,4 +1,10 @@
 <div>
-  <!-- <app-header></app-header> -->
-  <div class="container">jebac disa</div>
+  <app-header></app-header>
+  <div class="container">
+    <li *ngFor="let pb of productBacklog">
+      <product-backlog-workspace
+        [productBacklog]="pb"
+      ></product-backlog-workspace>
+    </li>
+  </div>
 </div>

@@ -12,6 +12,7 @@ import { HomeComponent } from './home.component';
 @NgModule({
   declarations: [AppHeaderComponent, HomeComponent],
   imports: [CommonModule, HomeRoutingModule, MatIconModule, MatMenuModule],
+  exports: [AppHeaderComponent],
   providers: [HomeService],
 })
 export class HomeModule {}

@@ -1,0 +1,106 @@
+product-backlog{
+    li {
+        list-style-type: none;
+        transition: all 0.4s ease-out;
+    }
+
+    img {
+        height: 0.8rem;
+        width: auto;
+    }
+
+    button{
+        border: 0;
+        background-color: inherit;
+    }
+        
+    .container{
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .create-workspace-button{
+        background-color: #175DC8;
+        color: white;
+        min-width: 12rem;
+        border: 0em;
+        padding: 1rem 2rem;
+        margin: 1rem auto;
+        border-radius: 1em;
+        font-size: 1.2em;
+    }
+
+    .workspace-button{
+        background-color: #175DC8;
+        color: white;
+        min-width: 12rem;
+        border: 0em;
+        padding: 0.2rem 1.4rem 0.5rem 1rem;
+        margin: 2vh auto 0.5rem 2vw;
+        border-radius: 2em;
+        font-size: 1.2em !important;
+        align-self: start;
+
+        i{
+            position:relative;
+            top:5px;
+        }
+    }
+
+    .workspace-list{
+        background-color: #d8e4f4;
+        min-height: 0;
+        max-height: 70vh;
+        width: 96vw;
+        border: 0;
+        border-radius: 1rem;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .workspace-card{
+        background-color: #f8fcfc;
+        border: 0;
+        border-radius: 1rem;
+        padding: 1rem;
+        margin: 0.7rem 0.5rem;
+    }
+
+    .workspace-empty{
+        color: #175DC8;
+        text-align: center;
+        font-weight: bold;
+        min-height:0;
+        padding: 2rem 0;
+
+        mat-icon{
+            position: relative;
+            top: 0.4rem;
+        }
+    }
+
+    .workspace-invisible{
+        color: #175DC8;
+        text-align: center;
+        font-weight: bold;
+        min-height:0;
+    }
+
+    .card-header{
+        margin: 0.5rem;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .card-name{
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+
+    .card-description{
+        margin: 0.5rem 0.5rem 0.5rem 1rem;
+    }
+    
+}
