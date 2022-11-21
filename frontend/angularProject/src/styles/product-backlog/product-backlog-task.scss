@@ -4,7 +4,7 @@ product-backlog-task{
         flex-direction: row;
         justify-content: space-between;
         align-content: space-between;
-        width: calc(100% - 3rem);
+        max-width: calc(100% - 3rem);
         background-color:#f8fcfc;
         border: 0;
         border-radius: 2rem;

@@ -14,9 +14,11 @@ product-backlog{
         background-color: inherit;
     }
         
-    .container{
+    .product-backlog-container{
         width: 100vw;
+        height: 90vh;
         display: flex;
         flex-direction: column;
+        overflow-y: scroll;
     }
 }

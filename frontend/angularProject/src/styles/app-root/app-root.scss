@@ -4,7 +4,7 @@ html,body {
 }
 
 body {
-    background-image: linear-gradient(to bottom, #98D2EE , #6393D5);
-    background-size: auto 100%;
+    background-image: repeating-linear-gradient(to bottom, #98D2EE , #6393D5);
     background-repeat: no-repeat;
+    overflow-x: hidden;
 }
