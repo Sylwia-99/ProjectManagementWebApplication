@@ -1,6 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  MAT_DIALOG_DEFAULT_OPTIONS,
+  MatDialogModule,
+} from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 
@@ -18,6 +23,8 @@ import { HomeModule } from './home/home.module';
 import { ProductBackolgWorkspaceComponent } from './product-backlog/workspace/product-backlog-workspace.component';
 import { ProductBacklogService } from 'src/data/product-backlog.service';
 import { ProductBackolgTaskComponent } from './product-backlog/task/product-backlog-task.component';
+import { WorkSpaceModalComponent } from './work-space-modal/work-space-modal.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,18 +36,26 @@ import { ProductBackolgTaskComponent } from './product-backlog/task/product-back
     ProductBackolgComponent,
     ProductBackolgWorkspaceComponent,
     ProductBackolgTaskComponent,
+    WorkSpaceModalComponent,
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
-    NavigationModule,
-    ReactiveFormsModule,
     HomeModule,
     MatMenuModule,
     MatIconModule,
+    FormsModule,
+    HttpClientModule,
+    MatDialogModule,
+    MatInputModule,
+    NavigationModule,
+    ReactiveFormsModule,
   ],
-  providers: [ProductBacklogService],
   bootstrap: [AppComponent],
+  providers: [
+    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: false } },
+    ProductBacklogService,
+  ],
 })
 export class AppModule {}
