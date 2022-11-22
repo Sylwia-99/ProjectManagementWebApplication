@@ -25,6 +25,9 @@ import { ProductBacklogService } from 'src/data/product-backlog.service';
 import { ProductBackolgTaskComponent } from './product-backlog/task/product-backlog-task.component';
 import { WorkSpaceModalComponent } from './work-space-modal/work-space-modal.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AddSprintModalComponent } from './product-backlog/modals/add-sprint-modal.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,7 @@ import { HttpClientModule } from '@angular/common/http';
     ProductBackolgWorkspaceComponent,
     ProductBackolgTaskComponent,
     WorkSpaceModalComponent,
+    AddSprintModalComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -51,11 +55,14 @@ import { HttpClientModule } from '@angular/common/http';
     MatInputModule,
     NavigationModule,
     ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   bootstrap: [AppComponent],
   providers: [
     { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: false } },
     ProductBacklogService,
+    MatDatepickerModule,
   ],
 })
 export class AppModule {}
