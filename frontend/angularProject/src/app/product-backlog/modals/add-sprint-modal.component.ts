@@ -33,6 +33,7 @@ export class AddSprintModalComponent {
     private builder: FormBuilder,
     private productBacklogService: ProductBacklogService
   ) {}
+
   save() {
     if (this.sprintForm.valid) {
       let sprintCreateRequest: SprintCreateRequest = this.sprintForm.value;
@@ -46,6 +47,7 @@ export class AddSprintModalComponent {
       this.isInvalidFlag = true;
     }
   }
+
   close() {
     this.dialogRef.close();
   }
