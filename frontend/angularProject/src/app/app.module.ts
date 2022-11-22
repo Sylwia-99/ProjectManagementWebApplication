@@ -1,8 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule} from '@angular/material/dialog';
-import { MatInputModule} from '@angular/material/input';
+import {
+  MAT_DIALOG_DEFAULT_OPTIONS,
+  MatDialogModule,
+} from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +17,12 @@ import { RegisterFormComponent } from './register-form/register-form.component';
 import { LogoPanelComponent } from './commons/logo-panel/logo-panel.component';
 import { ErrorMessageComponent } from './commons/error-message/error-message.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProductBackolgComponent } from './product-backlog/product-backlog.component';
+import { AppHeaderComponent } from './commons/app-header/app-header.component';
+import { HomeModule } from './home/home.module';
+import { ProductBackolgWorkspaceComponent } from './product-backlog/workspace/product-backlog-workspace.component';
+import { ProductBacklogService } from 'src/data/product-backlog.service';
+import { ProductBackolgTaskComponent } from './product-backlog/task/product-backlog-task.component';
 import { WorkSpaceModalComponent } from './work-space-modal/work-space-modal.component';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -22,22 +33,29 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterFormComponent,
     LogoPanelComponent,
     ErrorMessageComponent,
+    ProductBackolgComponent,
+    ProductBackolgWorkspaceComponent,
+    ProductBackolgTaskComponent,
     WorkSpaceModalComponent,
   ],
   imports: [
-    AppRoutingModule, 
+    AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
+    HomeModule,
+    MatMenuModule,
+    MatIconModule,
     FormsModule,
     HttpClientModule,
-    MatDialogModule, 
+    MatDialogModule,
     MatInputModule,
-    NavigationModule, 
-    ReactiveFormsModule
+    NavigationModule,
+    ReactiveFormsModule,
   ],
   bootstrap: [AppComponent],
   providers: [
-    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}},
-  ]
+    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: false } },
+    ProductBacklogService,
+  ],
 })
-export class AppModule { }
+export class AppModule {}

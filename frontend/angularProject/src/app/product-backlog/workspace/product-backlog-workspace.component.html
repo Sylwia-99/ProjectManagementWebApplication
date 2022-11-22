@@ -1,0 +1,68 @@
+<div>
+  <div class="container">
+    <button class="product-backlog-button">
+      <div (click)="toggleProductBacklogVisibility()">
+        <i *ngIf="isProductBacklogVisible" class="material-icons"
+          >arrow_drop_down</i
+        >
+        <i *ngIf="!isProductBacklogVisible" class="material-icons"
+          >arrow_drop_up</i
+        >
+
+        {{ productBacklog.name }}
+      </div>
+
+      <button class="product-backlog-dots" [matMenuTriggerFor]="menu">
+        <img src="{{ dots.src }}" alt="{{ dots.alt }}" />
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>Utwórz nowe zadanie</button>
+        <button mat-menu-item>Dodaj Sprint</button>
+        <button mat-menu-item>Dodaj członka</button>
+      </mat-menu>
+    </button>
+
+    <div class="product-backlog-content">
+      <div
+        *ngIf="
+          productBacklog?.backlog?.length === 0 ||
+            productBacklog?.sprints?.length === 0 ||
+            !isProductBacklogVisible;
+          else productBacklogList
+        "
+        [ngClass]="
+          !isProductBacklogVisible
+            ? 'product-backlog-invisible'
+            : 'product-backlog-empty'
+        "
+      >
+        <div *ngIf="isProductBacklogVisible">
+          <mat-icon>cancel</mat-icon> Brak przestrzeni roboczych
+        </div>
+      </div>
+
+      <ng-template #productBacklogList>
+        <li *ngFor="let backlogTask of productBacklog.backlog">
+          <product-backlog-task
+            [name]="backlogTask?.name"
+            [uuid]="backlogTask?.uuid"
+          ></product-backlog-task>
+        </li>
+
+        <li *ngFor="let backlogSprints of productBacklog.sprints">
+          <button class="sprint-label">
+            {{ backlogSprints.name }}
+          </button>
+          <ul>
+            <li *ngFor="let sprintTask of backlogSprints.tasks">
+              <product-backlog-task
+                [name]="sprintTask?.name"
+                [uuid]="sprintTask?.uuid"
+              ></product-backlog-task>
+            </li>
+          </ul>
+        </li>
+      </ng-template>
+    </div>
+  </div>
+</div>
