@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 
-import { ProductBacklog } from 'src/interfaces/product-backlog';
+import { AddSprintModalComponent } from '../modals/add-sprint-modal.component';
+import { ProductBacklog, Sprint } from 'src/interfaces/product-backlog';
 import { DOTS } from 'src/constants/constants.data';
 
 @Component({
@@ -14,11 +16,18 @@ export class ProductBackolgWorkspaceComponent {
 
   isProductBacklogVisible = true;
 
-  ngOnInit(): void {
-    console.log(this.productBacklog);
-  }
+  constructor(public dialogRef: MatDialog) {}
 
   toggleProductBacklogVisibility(): void {
     this.isProductBacklogVisible = !this.isProductBacklogVisible;
+  }
+
+  createSprint(): void {
+    const dialog = this.dialogRef.open(AddSprintModalComponent, {
+      width: '60vw',
+      height: '55vh',
+    });
+
+    dialog.afterClosed().subscribe((result: Sprint) => {});
   }
 }

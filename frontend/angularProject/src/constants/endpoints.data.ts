@@ -1,24 +1,35 @@
-
 export const ENDPOINTS = {
-	USER: {
-		GET: {
-			GET_USER_SETTINGS: `${window.location.origin}/user/user-settings`,
-		},
-		POST: {},
-		PUT: {},
-		DELETE: {},
-		PATCH: {},
-	},
+  USER: {
+    GET: {
+      GET_USER_SETTINGS: `${window.location.origin}/user/user-settings`,
+    },
+    POST: {},
+    PUT: {},
+    DELETE: {},
+    PATCH: {},
+  },
 
-    WORK_SPACE: {
-		GET: {
-			GET_USER_WORK_SPACES: `${window.location.origin}/workspace/{user-uuid}`,
-		},
-		POST: {
-            CREATE_USER_WORK_SPACE: `${window.location.origin}/workspace/{user-uuid}`,
-        },
-		PUT: {},
-		DELETE: {},
-		PATCH: {},
-	},
+  WORK_SPACE: {
+    GET: {
+      GET_USER_WORK_SPACES: `${window.location.origin}/workspace/{user-uuid}`,
+    },
+    POST: {
+      CREATE_USER_WORK_SPACE: `${window.location.origin}/workspace/{user-uuid}`,
+    },
+    PUT: {},
+    DELETE: {},
+    PATCH: {},
+  },
+
+  PRODUCT_BACKLOG: {
+    GET: {
+      GET_USER_PRODUCT_BACKLOG: `${window.location.origin}/product-backlog/{user-uuid}`,
+    },
+    POST: {
+      CREATE_SPRINT: `${window.location.origin}/product-backlog/sprint/{user-uuid}`,
+    },
+    PUT: {},
+    DELETE: {},
+    PATCH: {},
+  },
 };
