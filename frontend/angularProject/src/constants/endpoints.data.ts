@@ -27,6 +27,7 @@ export const ENDPOINTS = {
     },
     POST: {
       CREATE_SPRINT: `${window.location.origin}/product-backlog/sprint/{user-uuid}`,
+      CREATE_TASK: `${window.location.origin}/product-backlog/{workspace-uuid}/task/{user-uuid}`,
     },
     PUT: {},
     DELETE: {},

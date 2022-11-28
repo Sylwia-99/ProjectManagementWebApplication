@@ -1,3 +1,5 @@
+import { StatusType } from "src/interfaces/product-backlog";
+
 export const PRODUCT_BACKLOG = [
   {
     uuid: '0-0-0-1',
@@ -38,3 +40,32 @@ export const PRODUCT_BACKLOG = [
     description: 'Lorem ipsum dolor sit amet',
   },
 ];
+
+
+export const TASK = [
+  {
+    uuid: '0-0-0-1',
+    name: 'Nazwa zadania',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a ante mi. Duis fermentum rutrum nunc, a aliquam sapien vehicula quis. Morbi malesuada velit aliquam, tristique dolor vel, rhoncus felis. Suspendisse aliquet tempus massa, interdum mattis metus ullamcorper sit amet. Phasellus laoreet, lacus vel pellentesque consequat, lectus purus imperdiet nisl, ut feugiat justo turpis volutpat magna. Suspendisse convallis felis est, vitae gravida sapien eleifend rhoncus. In feugiat a velit sed iaculis. Ut a velit a ex aliquet interdum non vel dui. Phasellus lorem eros, semper eu rhoncus in, mattis at diam.',
+  }
+]
+
+export const STATUSES = [
+  {
+    label: "To do",
+    value: StatusType.TO_DO
+  },
+  {
+    label: "In progress",
+    value: StatusType.IN_PROGRESS
+  },
+  {
+    label: "Verification",
+    value: StatusType.VERIFICATION
+  },
+  {
+    label: "Done",
+    value: StatusType.DONE
+  }
+]

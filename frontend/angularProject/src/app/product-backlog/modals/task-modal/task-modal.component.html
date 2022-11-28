@@ -1,0 +1,79 @@
+<button class="close-button" mat-button (click)="close()">X</button>
+<h2 mat-dialog-title class="title">UTWÓRZ ZADANIE</h2>
+
+<mat-dialog-content [formGroup]="taskForm">
+    <div class="row">
+        <label 
+            for="name" 
+            class= "form-label"
+        >
+            Nazwa zadania
+        </label>
+        <mat-form-field appearance="fill">
+            <input           
+                matInput
+                formControlName="name">
+        </mat-form-field>
+        <label 
+            for="description" 
+            class= "form-label"
+        >
+            Opis            
+        </label>
+        <mat-form-field appearance="fill" class="description">
+            <input           
+                matInput
+                formControlName="description">
+        </mat-form-field>
+        <label 
+            for="acceptanceCriteria" 
+            class= "form-label"
+        >
+            Acceptance Criteria            
+        </label>
+        <mat-form-field appearance="fill">
+            <input           
+                matInput
+                formControlName="acceptanceCriteria">
+        </mat-form-field>
+        <label 
+            for="userUuid" 
+            class= "form-label"
+        >
+            Osoba przypisana   </label>
+        <mat-form-field appearance="fill">
+            <input           
+                matInput
+                formControlName="userUuid">
+        </mat-form-field>
+        <label 
+            for="storyPoints" 
+            class= "form-label"
+        >
+            Story Points   </label>
+        <mat-form-field appearance="fill">
+            <input           
+                matInput
+                formControlName="storyPoints">
+        </mat-form-field>
+        <label 
+            for="status" 
+            class= "form-label"
+        >
+            Status   </label>
+        <mat-form-field appearance="fill">
+            <mat-select [(ngModel)]="selectedStatusValue" name="status">
+                <mat-option *ngFor="let status of statuses" [value]="status.value">
+                  {{status.label}}
+                </mat-option>
+              </mat-select>
+            <input           
+                matInput
+                formControlName="status">
+        </mat-form-field>
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button class="form-container-button" (click)="save()"> Zapisz  </button>
+</mat-dialog-actions>
