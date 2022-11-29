@@ -48,8 +48,8 @@
       <ng-template #productBacklogList>
         <li *ngFor="let backlogTask of productBacklog.backlog">
           <product-backlog-task
-            [name]="backlogTask?.name"
-            [uuid]="backlogTask?.uuid"
+            [name]="backlogTask.name"
+            [uuid]="backlogTask.uuid"
           ></product-backlog-task>
         </li>
 
@@ -60,8 +60,8 @@
           <ul>
             <li *ngFor="let sprintTask of backlogSprints.tasks">
               <product-backlog-task
-                [name]="sprintTask?.name"
-                [uuid]="sprintTask?.uuid"
+                [name]="sprintTask.name"
+                [uuid]="sprintTask.uuid"
               ></product-backlog-task>
             </li>
           </ul>

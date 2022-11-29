@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
@@ -10,7 +10,7 @@ import { ComboData, StatusType, TaskCreateRequest, User, Task} from 'src/interfa
   selector: 'task-modal',
   templateUrl: './task-modal.component.html',
 })
-export class TaskModalComponent implements OnInit {
+export class TaskModalComponent {
 
   statuses: ComboData[] = STATUSES;
 
@@ -41,9 +41,6 @@ export class TaskModalComponent implements OnInit {
     private builder: FormBuilder,
     private productBacklogService: ProductBacklogService
   ) { }
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
 
   save() {
     if(this.taskForm.valid){
