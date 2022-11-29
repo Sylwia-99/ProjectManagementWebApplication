@@ -1,8 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 import { AddSprintModalComponent } from '../modals/add-sprint-modal.component';
-import { ProductBacklog, Sprint } from 'src/interfaces/product-backlog';
+import { ProductBacklog, Sprint, Task } from 'src/interfaces/product-backlog';
 import { DOTS } from 'src/constants/constants.data';
 import { TaskModalComponent } from '../modals/task-modal/task-modal.component';
 
@@ -29,7 +29,9 @@ export class ProductBackolgWorkspaceComponent {
       height: '50vh',
     });
 
-    dialog.afterClosed().subscribe((result: Sprint) => {});
+    dialog.afterClosed().subscribe((result: Sprint) => {
+      this.productBacklog?.sprints?.push(result)
+    });
   }
 
   createTask(): void {
@@ -38,6 +40,8 @@ export class ProductBackolgWorkspaceComponent {
       height: '75vh',
     });
 
-    dialog.afterClosed().subscribe((result: Task) => {});
+    dialog.afterClosed().subscribe((result: Task) => {
+      this.productBacklog?.backlog?.push(result)
+    });
   }
 }

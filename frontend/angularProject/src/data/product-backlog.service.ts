@@ -50,7 +50,7 @@ export class ProductBacklogService {
   createTask(
     taskData: TaskCreateRequest,
     [personUUID, workspaceUUID]: string[]
-  ): Observable<Sprint> {
+  ): Observable<Task> {
     const endpoint = `${EndpointUtilService.prepareEndpoint(
       this.ENDPOINTS.PRODUCT_BACKLOG.POST.CREATE_TASK,
       { 'user-uuid': personUUID, 'workspace-uuid': workspaceUUID }

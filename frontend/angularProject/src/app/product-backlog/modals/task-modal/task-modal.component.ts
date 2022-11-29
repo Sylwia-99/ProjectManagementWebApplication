@@ -1,11 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { STATUSES } from 'src/core/_database/product-backlog';
 
-import { WORK_SPACE } from 'src/core/_database/work-space';
+import { STATUSES, USERS } from 'src/core/_database/product-backlog';
 import { ProductBacklogService } from 'src/data/product-backlog.service';
-import { StatusType, TaskCreateRequest } from 'src/interfaces/product-backlog';
+import { ComboData, StatusType, TaskCreateRequest, User, Task} from 'src/interfaces/product-backlog';
 
 @Component({
   selector: 'task-modal',
@@ -13,9 +12,9 @@ import { StatusType, TaskCreateRequest } from 'src/interfaces/product-backlog';
 })
 export class TaskModalComponent implements OnInit {
 
-  statuses = STATUSES;
+  statuses: ComboData[] = STATUSES;
 
-  selectedStatusValue: string;
+  users: User[] = USERS;
 
   isInvalidFlag = false;
 
@@ -51,7 +50,7 @@ export class TaskModalComponent implements OnInit {
       console.log(this.taskForm.value);
       let taskCreateRequest: TaskCreateRequest = this.taskForm.value
       this.productBacklogService.createTask(taskCreateRequest,["workspace-id"])
-        .subscribe((task)=>  
+        .subscribe((task: Task)=>  
           {
             console.log((task)); 
             this.dialogRef.close(task);

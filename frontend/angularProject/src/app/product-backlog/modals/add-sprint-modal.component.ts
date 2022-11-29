@@ -3,7 +3,7 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { ProductBacklogService } from 'src/data/product-backlog.service';
-import { SprintCreateRequest } from 'src/interfaces/product-backlog';
+import { Sprint, SprintCreateRequest } from 'src/interfaces/product-backlog';
 
 @Component({
   selector: 'add-sprint-modal',
@@ -40,7 +40,7 @@ export class AddSprintModalComponent {
 
       this.productBacklogService
         .createSprint(sprintCreateRequest, ['user-id', 'workspace-uuid'])
-        .subscribe((sprint) => {
+        .subscribe((sprint: Sprint) => {
           this.dialogRef.close(sprint);
         });
     } else {

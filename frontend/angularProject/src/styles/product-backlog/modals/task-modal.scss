@@ -90,4 +90,12 @@ task-modal{
         flex-direction: column;
         width: 50%;
     }
+
+    .mat-select-value {
+        margin: 1rem 0 0 1rem;
+    }
+
+    .mat-select-arrow-wrapper {
+        margin: 2rem 1rem 0 0;
+    }
 }

@@ -1,4 +1,4 @@
-import { StatusType } from "src/interfaces/product-backlog";
+import { StatusType, User } from "src/interfaces/product-backlog";
 
 export const PRODUCT_BACKLOG = [
   {
@@ -67,5 +67,34 @@ export const STATUSES = [
   {
     label: "Done",
     value: StatusType.DONE
+  }
+]
+
+
+export const USERS: User[] = [
+  {
+    uuid: "0-0-0-1",
+    name: "Sylwia",
+    surname: "Mosur",
+    email: 'mosur@gmail.com',
+  },
+  {
+    uuid: "0-0-0-2",
+    name: "Kinga",
+    surname: "Wrona",
+    email: 'kw@gmail.com',
+  },
+  {
+    uuid: "0-0-0-3",
+    name: "Mateusz",
+    surname: "Sitek",
+    email: 'sitek@gmail.com',
+
+  },
+  {
+    uuid: "0-0-0-4",
+    name: "Marcin",
+    surname: "Poręba",
+    email: 'mp@gmail.com',
   }
 ]

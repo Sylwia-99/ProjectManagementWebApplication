@@ -42,9 +42,11 @@
         >
             Osoba przypisana   </label>
         <mat-form-field appearance="fill">
-            <input           
-                matInput
-                formControlName="userUuid">
+            <mat-select formControlName="userUuid">
+                <mat-option *ngFor="let user of users" [value]="user.uuid">
+                  {{user.name}} {{user.surname}}
+                </mat-option>
+              </mat-select>
         </mat-form-field>
         <label 
             for="storyPoints" 
@@ -62,14 +64,11 @@
         >
             Status   </label>
         <mat-form-field appearance="fill">
-            <mat-select [(ngModel)]="selectedStatusValue" name="status">
+            <mat-select formControlName="status">
                 <mat-option *ngFor="let status of statuses" [value]="status.value">
                   {{status.label}}
                 </mat-option>
               </mat-select>
-            <input           
-                matInput
-                formControlName="status">
         </mat-form-field>
     </div>
 </mat-dialog-content>

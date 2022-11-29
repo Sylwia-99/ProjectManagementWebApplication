@@ -8,18 +8,12 @@ export interface Task {
   storyPoints: number;
 }
 
-export interface SprintProductBacklog {
-  uuid: string;
-  name: string;
-  tasks?: Task[];
-}
-
 export interface ProductBacklog {
   uuid: string;
   name: string;
   description?: string;
   backlog?: Task[];
-  sprints?: SprintProductBacklog[];
+  sprints?: Sprint[];
 }
 
 export interface Sprint {
@@ -29,6 +23,7 @@ export interface Sprint {
   description?: string;
   startDate?: string;
   endDate?: string;
+  tasks?: Task[];
 }
 
 export interface SprintCreateRequest {
@@ -55,3 +50,14 @@ export const enum StatusType {
   DONE = "DONE"
 }
 
+export interface User {
+  uuid: string;
+  name: string;
+  surname: string;
+  email: string;
+}
+
+export interface ComboData {
+  value: string;
+  label: string
+}
