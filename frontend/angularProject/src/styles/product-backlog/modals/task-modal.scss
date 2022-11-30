@@ -1,4 +1,4 @@
-add-sprint-modal{
+task-modal{
     .cdk-dialog-container{        
         width: 32rem !important;
         max-height: 10rem;
@@ -46,11 +46,6 @@ add-sprint-modal{
         border-radius: 24rem;
     }
 
-    .mat-datepicker-toggle-default-icon{
-        position: relative;
-        bottom: 0.3rem;
-    }
-
     .mat-form-field-infix{
         display: flex;
         background-color: #b3e5ff;
@@ -80,14 +75,11 @@ add-sprint-modal{
         padding: 0.7rem;
     }
 
-    .date-container{
-        display: flex;
-        justify-content:space-between ;
+    .mat-select-value {
+        margin: 1rem 0 0 1rem;
     }
 
-    .form-date-container{
-        display: flex;
-        flex-direction: column;
-        width: 50%;
+    .mat-select-arrow-wrapper {
+        margin: 2rem 1rem 0 0;
     }
 }

@@ -2,13 +2,17 @@
   <div class="container">
     <button class="product-backlog-button">
       <div (click)="toggleProductBacklogVisibility()">
-        <i *ngIf="isProductBacklogVisible" class="material-icons"
-          >arrow_drop_down</i
+        <em 
+          *ngIf="isProductBacklogVisible" 
+          class="material-icons"
         >
-        <i *ngIf="!isProductBacklogVisible" class="material-icons"
-          >arrow_drop_up</i
+          arrow_drop_down</em
         >
-
+        <em 
+          *ngIf="!isProductBacklogVisible" 
+            class="material-icons"
+        > arrow_drop_up
+          </em>
         {{ productBacklog.name }}
       </div>
 
@@ -16,7 +20,7 @@
         <img src="{{ dots.src }}" alt="{{ dots.alt }}" />
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item>Utwórz nowe zadanie</button>
+        <button mat-menu-item (click)="createTask()">Utwórz nowe zadanie</button>
         <button mat-menu-item (click)="createSprint()">Dodaj Sprint</button>
         <button mat-menu-item>Dodaj członka</button>
       </mat-menu>

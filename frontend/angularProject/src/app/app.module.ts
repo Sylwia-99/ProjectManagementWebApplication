@@ -8,6 +8,7 @@ import {
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatSelectModule } from '@angular/material/select'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddSprintModalComponent } from './product-backlog/modals/add-sprint-modal.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { TaskModalComponent } from './product-backlog/modals/task-modal/task-modal.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     ProductBackolgTaskComponent,
     WorkSpaceModalComponent,
     AddSprintModalComponent,
+    TaskModalComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -48,6 +51,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     BrowserAnimationsModule,
     HomeModule,
     MatMenuModule,
+    MatSelectModule,
     MatIconModule,
     FormsModule,
     HttpClientModule,

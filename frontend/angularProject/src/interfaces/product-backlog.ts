@@ -1,12 +1,11 @@
-interface Task {
+export interface Task {
   uuid: string;
   name: string;
-}
-
-export interface SprintProductBacklog {
-  uuid: string;
-  name: string;
-  tasks?: Task[];
+  acceptanceCriteria: string,
+  userUuid: string, 
+  status: StatusType;
+  description?: string;
+  storyPoints: number;
 }
 
 export interface ProductBacklog {
@@ -14,7 +13,7 @@ export interface ProductBacklog {
   name: string;
   description?: string;
   backlog?: Task[];
-  sprints?: SprintProductBacklog[];
+  sprints?: Sprint[];
 }
 
 export interface Sprint {
@@ -24,6 +23,7 @@ export interface Sprint {
   description?: string;
   startDate?: string;
   endDate?: string;
+  tasks?: Task[];
 }
 
 export interface SprintCreateRequest {
@@ -32,4 +32,32 @@ export interface SprintCreateRequest {
   description?: string;
   startDate?: string;
   endDate?: string;
+}
+
+export interface TaskCreateRequest {
+  name: string;
+  acceptanceCriteria: string,
+  userUuid: string, 
+  status: StatusType;
+  description?: string;
+  storyPoints: number;
+}
+
+export const enum StatusType {
+  TO_DO ="TO_DO",
+  IN_PROGRESS = "IN_PROGRESS",
+  VERIFICATION = "VERIFICATION",
+  DONE = "DONE"
+}
+
+export interface User {
+  uuid: string;
+  name: string;
+  surname: string;
+  email: string;
+}
+
+export interface ComboData {
+  value: string;
+  label: string
 }

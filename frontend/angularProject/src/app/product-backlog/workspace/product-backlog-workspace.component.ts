@@ -1,9 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 import { AddSprintModalComponent } from '../modals/add-sprint-modal.component';
-import { ProductBacklog, Sprint } from 'src/interfaces/product-backlog';
+import { ProductBacklog, Sprint, Task } from 'src/interfaces/product-backlog';
 import { DOTS } from 'src/constants/constants.data';
+import { TaskModalComponent } from '../modals/task-modal/task-modal.component';
 
 @Component({
   selector: 'product-backlog-workspace',
@@ -25,9 +26,22 @@ export class ProductBackolgWorkspaceComponent {
   createSprint(): void {
     const dialog = this.dialogRef.open(AddSprintModalComponent, {
       width: '60vw',
-      height: '55vh',
+      height: '50vh',
     });
 
-    dialog.afterClosed().subscribe((result: Sprint) => {});
+    dialog.afterClosed().subscribe((result: Sprint) => {
+      this.productBacklog?.sprints?.push(result)
+    });
+  }
+
+  createTask(): void {
+    const dialog = this.dialogRef.open(TaskModalComponent, {
+      width: '60vw',
+      height: '75vh',
+    });
+
+    dialog.afterClosed().subscribe((result: Task) => {
+      this.productBacklog?.backlog?.push(result)
+    });
   }
 }
