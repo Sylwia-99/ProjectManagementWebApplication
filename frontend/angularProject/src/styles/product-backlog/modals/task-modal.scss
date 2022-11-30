@@ -47,11 +47,6 @@ task-modal{
         border-radius: 24rem;
     }
 
-    .mat-datepicker-toggle-default-icon{
-        position: relative;
-        bottom: 0.3rem;
-    }
-
     .mat-form-field-infix{
         display: flex;
         background-color: #b3e5ff;
@@ -79,17 +74,6 @@ task-modal{
 
     input.mat-input-element{
         padding: 0.7rem;
-    }
-
-    .date-container{
-        display: flex;
-        justify-content:space-between ;
-    }
-
-    .form-date-container{
-        display: flex;
-        flex-direction: column;
-        width: 50%;
     }
 
     .mat-select-value {
