@@ -1,11 +1,33 @@
-<div class="content">   
-    <img src="{{logo.src}}" alt="{{logo.alt}}"/>
-    <button aria-label="Example icon-button with a menu" [matMenuTriggerFor]="menu">
-        <img src="{{profile.src}}" alt="{{profile.alt}}" (click)="logout.emit()">
-      </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item>
-            Wyloguj
-        </button>
-      </mat-menu>
+<div class="content">
+  <img src="{{ logo.src }}" alt="{{ logo.alt }}" />
+
+  <div class="header-buttons">
+    <a
+      routerLink="/home"
+      [ngClass]="{
+        'app-header-button__current-page': router.url === '/home',
+        'app-header-button': router.url !== '/home'
+      }"
+      >Strona główna
+    </a>
+    <a
+      routerLink="/product-backlog"
+      [ngClass]="{
+        'app-header-button__current-page': router.url === '/product-backlog',
+        'app-header-button': router.url !== '/product-backlog'
+      }"
+      >Product Backlog</a
+    >
+  </div>
+  <button
+    class="avatar-img"
+    aria-label="Example icon-button with a menu"
+    [matMenuTriggerFor]="menu"
+  >
+    <img src="{{ profile.src }}" alt="{{ profile.alt }}" />
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="logout.emit()">Wyloguj</button>
+  </mat-menu>
 </div>

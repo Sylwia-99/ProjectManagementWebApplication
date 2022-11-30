@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { KeycloakGuard } from './guards/keycloak.guard';
 
 import { LoginFormComponent } from './login-form/login-form.component';
+import { ProductBackolgComponent } from './product-backlog/product-backlog.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { UserSettingResolver } from './services/user-setting.resolver';
 
@@ -30,6 +31,7 @@ const routes: Routes = [{
                 (m) => m.HomeModule
                 ) 
           },
+          { path: 'product-backlog', component: ProductBackolgComponent },
           //{ path: 'login', component: LoginFormComponent },
           //{ path: 'register', component: RegisterFormComponent },
         ]
@@ -44,4 +46,4 @@ const routes: Routes = [{
   exports: [RouterModule],
   providers: [UserSettingResolver]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

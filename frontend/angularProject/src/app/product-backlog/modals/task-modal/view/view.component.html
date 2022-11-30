@@ -1,0 +1,32 @@
+<button class="close-button" mat-button (click)="close()">X</button>
+<h2 mat-dialog-title class="title">{{task.name}}</h2>
+
+<mat-dialog-content>
+    <div class="row">
+        <label class= "form-label"
+        >
+            Opis
+        </label>
+        <span  class="form-input"> {{task.description}} </span>
+        <label class= "form-label"
+        >
+            Acceptance Criteria
+        </label>        
+        <span class="form-input"> {{task.acceptanceCriteria}} </span>
+        <label class= "form-label"
+        >
+            Osoba przypisana          
+        </label>
+        <span class="form-input"> {{task.userFullName}} </span>
+        <label class= "form-label"
+        >
+            Story Points       
+        </label>
+        <span class="form-input"> {{task.storyPoints}} </span>
+        <label class= "form-label"
+        >
+            Status         
+        </label>
+        <span class="form-input"> {{task.status}} </span>
+    </div>
+</mat-dialog-content>

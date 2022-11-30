@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="task-name">{{ this.name }}</div>
+  <button class="task-button" [matMenuTriggerFor]="menu">
+    <img src="{{ dots.src }}" alt="{{ dots.alt }}" />
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="editTask(this.uuid)">Edytuj</button>
+    <button mat-menu-item>Usuń</button>
+    <button mat-menu-item>Przenieś do sprintu</button>
+  </mat-menu>
+</div>

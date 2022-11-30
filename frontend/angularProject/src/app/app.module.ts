@@ -2,8 +2,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { KeycloakAngularModule } from 'keycloak-angular';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  MAT_DIALOG_DEFAULT_OPTIONS,
+  MatDialogModule,
+} from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSelectModule } from '@angular/material/select'
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +25,16 @@ import { ErrorMessageComponent } from './commons/error-message/error-message.com
 import { keycloakInitializer } from './inceptors/keycloack-initializer';
 import { KeycloakInterceptor } from './inceptors/keycloack.interceptor';
 import { AuthenticationService } from './services/authentication.service';
+import { ProductBackolgComponent } from './product-backlog/product-backlog.component';
+import { AppHeaderComponent } from './commons/app-header/app-header.component';
+import { HomeModule } from './home/home.module';
+import { ProductBackolgWorkspaceComponent } from './product-backlog/workspace/product-backlog-workspace.component';
+import { ProductBacklogService } from 'src/data/product-backlog.service';
+import { ProductBackolgTaskComponent } from './product-backlog/task/product-backlog-task.component';
+import { WorkSpaceModalComponent } from './work-space-modal/work-space-modal.component';
+import { AddSprintModalComponent } from './product-backlog/modals/add-sprint-modal.component';
+import { TaskModalComponent } from './product-backlog/modals/task-modal/task-modal.component';
+import { ViewComponent } from './product-backlog/modals/task-modal/view/view.component';
 
 @NgModule({
   declarations: [
@@ -23,12 +43,31 @@ import { AuthenticationService } from './services/authentication.service';
     RegisterFormComponent,
     LogoPanelComponent,
     ErrorMessageComponent,
+    ProductBackolgComponent,
+    ProductBackolgWorkspaceComponent,
+    ProductBackolgTaskComponent,
+    WorkSpaceModalComponent,
+    AddSprintModalComponent,
+    TaskModalComponent,
+    ViewComponent,
   ],
   imports: [
-    AppRoutingModule, 
+    AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule, 
+    HomeModule,
+    MatMenuModule,
+    MatSelectModule,
+    MatIconModule,
+    FormsModule,
+    HttpClientModule,
+    MatDialogModule,
+    MatInputModule,
+    NavigationModule,
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     KeycloakAngularModule,
     NavigationModule, 
     ReactiveFormsModule
@@ -46,6 +85,12 @@ import { AuthenticationService } from './services/authentication.service';
       useFactory: KeycloakInterceptor,
       multi: true,
     },
+    { 
+      provide: MAT_DIALOG_DEFAULT_OPTIONS, 
+      useValue: { hasBackdrop: false } 
+    },
+    ProductBacklogService,
+    MatDatepickerModule,
   ]
 })
-export class AppModule { }
+export class AppModule {}

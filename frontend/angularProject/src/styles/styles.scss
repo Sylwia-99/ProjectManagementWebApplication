@@ -1,7 +1,16 @@
 @import './app-root/app-root';
+@import './home/home';
 @import './login-form/login-form';
 @import './register-form/register-form';
 @import './home/home';
+@import './product-backlog/modals/add-sprint-modal';
+@import './product-backlog/modals/task-modal';
+@import './product-backlog/modals/view/view';
+@import './product-backlog/product-backlog';
+@import './product-backlog/product-backlog-workspace';
+@import './product-backlog/product-backlog-task';
+
+@import './work-space-modal/work-space-modal';
 
 @import './commons/logo-panel/logo-panel';
 @import './commons/app-header/app-header';
