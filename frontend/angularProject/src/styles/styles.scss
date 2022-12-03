@@ -1,15 +1,14 @@
 @import './app-root/app-root';
+@import './commons/logo-panel/logo-panel';
+@import './commons/app-header/app-header';
 @import './home/home';
 @import './login-form/login-form';
-@import './register-form/register-form';
-@import './home/home';
 @import './product-backlog/modals/add-sprint-modal';
 @import './product-backlog/modals/task-modal';
 @import './product-backlog/product-backlog';
 @import './product-backlog/product-backlog-workspace';
 @import './product-backlog/product-backlog-task';
-
+@import './register-form/register-form';
+@import './sprint/sprint';
+@import './sprint/status-column/status-column';
 @import './work-space-modal/work-space-modal';
-
-@import './commons/logo-panel/logo-panel';
-@import './commons/app-header/app-header';

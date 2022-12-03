@@ -1,0 +1,19 @@
+status-column{
+    .status-column-button{
+        background-color: #175DC8;
+        color: white;
+        width: 23vw;
+        border: 0em;
+        padding: 0.2rem 1.4rem 0.5rem 1rem;
+        margin: 2vh auto 0.5rem;
+        border-radius: 2em;
+        font-size: 1.2em !important;
+        align-self: center;
+        display: flex;
+    
+        i{
+            position:relative;
+            top:5px;
+        }
+    }
+}

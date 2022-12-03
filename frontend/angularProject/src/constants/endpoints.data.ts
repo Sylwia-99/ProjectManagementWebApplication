@@ -24,6 +24,7 @@ export const ENDPOINTS = {
   PRODUCT_BACKLOG: {
     GET: {
       GET_USER_PRODUCT_BACKLOG: `${window.location.origin}/product-backlog/{user-uuid}`,
+      GET_SPRINT: `${window.location.origin}/product-backlog/{product-backlog-uuid}/sprint/{sprint-uuid}`,
     },
     POST: {
       CREATE_SPRINT: `${window.location.origin}/product-backlog/sprint/{user-uuid}`,

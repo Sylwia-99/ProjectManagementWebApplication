@@ -18,6 +18,12 @@
       }"
       >Product Backlog</a
     >
+    <a *ngIf="sprintName" 
+    [ngClass]="{
+      'app-header-button__current-page': isSprintView,
+      'app-header-button': !isSprintView
+    }">{{sprintName}}</a
+    >
   </div>
   <button
     class="avatar-img"

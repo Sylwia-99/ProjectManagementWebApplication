@@ -1,0 +1,12 @@
+<div>
+    <app-header [sprintName]="sprint?.name"></app-header>
+    <div class="sprint-container">
+      <ul *ngFor="let status of statuses">
+        <status-column
+          [status]="status"
+          [tasks]="sprint?.tasks"
+        ></status-column>
+      </ul>
+    </div>
+</div>
+  
