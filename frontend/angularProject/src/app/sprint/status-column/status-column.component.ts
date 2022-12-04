@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { ComboData } from 'src/interfaces/product-backlog';
-import { Task } from 'src/interfaces/product-backlog';
+import { ComboData, Task } from 'src/interfaces/product-backlog';
 
 @Component({
   selector: 'status-column',

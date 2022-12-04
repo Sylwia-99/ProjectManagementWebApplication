@@ -35,13 +35,10 @@
         <ng-template #statusColumnList>
           <ul *ngFor="let task of tasks">
             <ng-container [ngSwitch]="task?.status">
-                <!-- the same view can be shown in more than one case -->
                 <ng-container *ngSwitchCase="status.value">
-                    {{task.name}}
-                     <!-- <status-column-task
-                        [name]="backlogTask?.name"
-                        [uuid]="backlogTask?.uuid"
-                    ></status-column-task> -->
+                    <status-column-task
+                      [task]="task"
+                    ></status-column-task>
                 </ng-container>
                 <ng-container *ngSwitchDefault><div></div></ng-container>
             </ng-container>

@@ -36,6 +36,7 @@ export const PRODUCT_BACKLOG: ProductBacklog[] = [
             userUuid: '0-0-0-1', 
             status: StatusType.IN_PROGRESS,
             storyPoints: 2,
+            description: 'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum',
           },
           { 
             uuid: '0-0-0-2', 
@@ -44,6 +45,7 @@ export const PRODUCT_BACKLOG: ProductBacklog[] = [
             userUuid: '0-0-0-1', 
             status: StatusType.IN_PROGRESS,
             storyPoints: 3, 
+            description: 'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum',
           },
           { 
             uuid: '0-0-0-3', 
@@ -52,6 +54,7 @@ export const PRODUCT_BACKLOG: ProductBacklog[] = [
             userUuid: '0-0-0-1', 
             status: StatusType.TO_DO,
             storyPoints: 1, 
+            description: 'Lorem Ipsum Lorem Ipsum Lorem Ipsum',
           },
           { 
             uuid: '0-0-0-4', 
@@ -60,6 +63,7 @@ export const PRODUCT_BACKLOG: ProductBacklog[] = [
             userUuid: '0-0-0-1', 
             status: StatusType.TO_DO,
             storyPoints: 1, 
+            description: 'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum',
           },
           { 
             uuid: '0-0-0-5', 
@@ -68,6 +72,7 @@ export const PRODUCT_BACKLOG: ProductBacklog[] = [
             userUuid: '0-0-0-1', 
             status: StatusType.TO_DO,
             storyPoints: 1, 
+            description: 'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem ',
           },
           { 
             uuid: '0-0-0-6', 
@@ -76,6 +81,7 @@ export const PRODUCT_BACKLOG: ProductBacklog[] = [
             userUuid: '0-0-0-1', 
             status: StatusType.DONE,
             storyPoints: 1, 
+            description: 'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum',
           },
           { 
             uuid: '0-0-0-7', 
@@ -84,6 +90,7 @@ export const PRODUCT_BACKLOG: ProductBacklog[] = [
             userUuid: '0-0-0-1', 
             status: StatusType.DONE,
             storyPoints: 1, 
+            description: 'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum',
           },
         ],
       },

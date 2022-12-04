@@ -32,6 +32,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { TaskModalComponent } from './product-backlog/modals/task-modal/task-modal.component';
 import { SprintComponent } from './sprint/sprint.component';
 import { StatusColumnComponent } from './sprint/status-column/status-column.component';
+import { TaskComponent } from './sprint/status-column/task/task.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { StatusColumnComponent } from './sprint/status-column/status-column.comp
     TaskModalComponent,
     SprintComponent,
     StatusColumnComponent,
+    TaskComponent,
   ],
   imports: [
     AppRoutingModule,

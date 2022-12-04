@@ -2,10 +2,10 @@ status-column{
     .status-column-button{
         background-color: #175DC8;
         color: white;
-        width: 23vw;
+        width: 22.5vw;
         border: 0em;
         padding: 0.2rem 1.4rem 0.5rem 1rem;
-        margin: 2vh auto 0.5rem;
+        margin: 1rem auto 0.5rem;
         border-radius: 2em;
         font-size: 1.2em !important;
         align-self: center;
@@ -15,5 +15,15 @@ status-column{
             position:relative;
             top:5px;
         }
+    }
+
+    ul{
+        padding: 0;
+    }
+
+    .status-column-content{
+        width: 22.5vw;
+        padding: 0.2rem 1.4rem 0.5rem 1rem;
+        margin: 1rem auto 0.5rem;
     }
 }
