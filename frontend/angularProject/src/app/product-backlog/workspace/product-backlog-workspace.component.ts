@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
-import { AddSprintModalComponent } from '../modals/add-sprint-modal.component';
+import { AddSprintModalComponent } from '../modals/add-sprint-modal/add-sprint-modal.component';
 import { ProductBacklog, Sprint, Task } from 'src/interfaces/product-backlog';
 import { DOTS } from 'src/constants/constants.data';
 import { TaskModalComponent } from '../modals/task-modal/task-modal.component';
@@ -18,10 +18,7 @@ export class ProductBackolgWorkspaceComponent {
 
   isProductBacklogVisible = true;
 
-  constructor(
-    public dialogRef: MatDialog,
-    private router: Router
-    ) {}
+  constructor(public dialogRef: MatDialog, private router: Router) {}
 
   toggleProductBacklogVisibility(): void {
     this.isProductBacklogVisible = !this.isProductBacklogVisible;
@@ -34,7 +31,7 @@ export class ProductBackolgWorkspaceComponent {
     });
 
     dialog.afterClosed().subscribe((result: Sprint) => {
-      this.productBacklog?.sprints?.push(result)
+      this.productBacklog?.sprints?.push(result);
     });
   }
 
@@ -45,13 +42,13 @@ export class ProductBackolgWorkspaceComponent {
     });
 
     dialog.afterClosed().subscribe((result: Task) => {
-      this.productBacklog?.backlog?.push(result)
+      this.productBacklog?.backlog?.push(result);
     });
   }
 
-  viewSprint(productBacklog: string, sprintUuid: string): void{
-    this.router.navigate(['/sprint/', sprintUuid],    
-      { queryParams: { productBacklog: productBacklog }}
-    )
+  viewSprint(productBacklog: string, sprintUuid: string): void {
+    this.router.navigate(['/sprint/', sprintUuid], {
+      queryParams: { productBacklog: productBacklog },
+    });
   }
 }

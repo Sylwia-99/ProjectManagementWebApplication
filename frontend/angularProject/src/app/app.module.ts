@@ -8,7 +8,7 @@ import {
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
-import { MatSelectModule } from '@angular/material/select'
+import { MatSelectModule } from '@angular/material/select';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,7 +26,7 @@ import { ProductBacklogService } from 'src/data/product-backlog.service';
 import { ProductBackolgTaskComponent } from './product-backlog/task/product-backlog-task.component';
 import { WorkSpaceModalComponent } from './work-space-modal/work-space-modal.component';
 import { HttpClientModule } from '@angular/common/http';
-import { AddSprintModalComponent } from './product-backlog/modals/add-sprint-modal.component';
+import { AddSprintModalComponent } from './product-backlog/modals/add-sprint-modal/add-sprint-modal.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { TaskModalComponent } from './product-backlog/modals/task-modal/task-modal.component';
