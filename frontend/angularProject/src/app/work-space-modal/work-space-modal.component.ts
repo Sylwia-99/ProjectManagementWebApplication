@@ -33,12 +33,10 @@ export class WorkSpaceModalComponent {
 
   save() {
     if(this.workSpaceForm.valid){
-      console.log(this.workSpaceForm.value);
       let workSpaceCreateRequest: WorkSpaceCreateRequest = this.workSpaceForm.value
       this.workspaceService.createUserWorkSpace(workSpaceCreateRequest,["user-id"])
         .subscribe(workspace =>  
           {
-            console.log((workspace)); 
             this.dialogRef.close(workspace);
           }
       );

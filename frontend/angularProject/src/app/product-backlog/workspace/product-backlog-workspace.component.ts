@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 import { AddSprintModalComponent } from '../modals/add-sprint-modal.component';
 import { ProductBacklog, Sprint, Task } from 'src/interfaces/product-backlog';
@@ -17,7 +18,10 @@ export class ProductBackolgWorkspaceComponent {
 
   isProductBacklogVisible = true;
 
-  constructor(public dialogRef: MatDialog) {}
+  constructor(
+    public dialogRef: MatDialog,
+    private router: Router
+    ) {}
 
   toggleProductBacklogVisibility(): void {
     this.isProductBacklogVisible = !this.isProductBacklogVisible;
@@ -43,5 +47,11 @@ export class ProductBackolgWorkspaceComponent {
     dialog.afterClosed().subscribe((result: Task) => {
       this.productBacklog?.backlog?.push(result)
     });
+  }
+
+  viewSprint(productBacklog: string, sprintUuid: string): void{
+    this.router.navigate(['/sprint/', sprintUuid],    
+      { queryParams: { productBacklog: productBacklog }}
+    )
   }
 }

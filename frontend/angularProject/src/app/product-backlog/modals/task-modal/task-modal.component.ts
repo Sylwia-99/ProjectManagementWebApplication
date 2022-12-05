@@ -44,12 +44,10 @@ export class TaskModalComponent {
 
   save() {
     if(this.taskForm.valid){
-      console.log(this.taskForm.value);
       let taskCreateRequest: TaskCreateRequest = this.taskForm.value
       this.productBacklogService.createTask(taskCreateRequest,["workspace-id"])
         .subscribe((task: Task)=>  
           {
-            console.log((task)); 
             this.dialogRef.close(task);
           }
       );
