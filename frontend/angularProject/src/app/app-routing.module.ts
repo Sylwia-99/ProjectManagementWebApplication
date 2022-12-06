@@ -5,6 +5,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { ProductBackolgComponent } from './product-backlog/product-backlog.component';
+import { SprintComponent } from './sprint/sprint.component';
 
 const routes: Routes = [
   {
@@ -27,9 +28,22 @@ const routes: Routes = [
             loadChildren: () =>
               import('./home/home.module').then((m) => m.HomeModule),
           },
-          { path: 'login', component: LoginFormComponent },
-          { path: 'register', component: RegisterFormComponent },
-          { path: 'product-backlog', component: ProductBackolgComponent },
+          { 
+            path: 'login', 
+            component: LoginFormComponent 
+          },
+          { 
+            path: 'register', 
+            component: RegisterFormComponent 
+          },
+          { 
+            path: 'product-backlog', 
+            component: ProductBackolgComponent,
+          },
+          {
+            path: 'sprint/:uuid', 
+            component: SprintComponent,
+          },
         ],
       },
       {

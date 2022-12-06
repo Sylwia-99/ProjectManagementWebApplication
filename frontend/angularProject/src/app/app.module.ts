@@ -31,6 +31,9 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { TaskModalComponent } from './product-backlog/modals/task-modal/task-modal.component';
 import { ViewComponent } from './product-backlog/modals/task-modal/view/view.component';
+import { SprintComponent } from './sprint/sprint.component';
+import { StatusColumnComponent } from './sprint/status-column/status-column.component';
+import { TaskComponent } from './sprint/status-column/task/task.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +49,9 @@ import { ViewComponent } from './product-backlog/modals/task-modal/view/view.com
     AddSprintModalComponent,
     TaskModalComponent,
     ViewComponent,
+    SprintComponent,
+    StatusColumnComponent,
+    TaskComponent,
   ],
   imports: [
     AppRoutingModule,

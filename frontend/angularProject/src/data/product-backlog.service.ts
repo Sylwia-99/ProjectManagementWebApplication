@@ -7,6 +7,7 @@ import {
   Task,
   Sprint,
   TaskCreateRequest,
+  ProductBacklog,
 } from '../interfaces/product-backlog';
 import { EndpointUtilService } from 'src/app/services/endpoint-util.service';
 import { PRODUCT_BACKLOG, TASK } from '../core/_database/product-backlog';
@@ -29,6 +30,24 @@ export class ProductBacklogService {
       subscriber.complete();
     });
   }
+
+
+  getSprint(sprintUuid: string, productBacklogUuid: string): Observable<Sprint> {
+    const endpoint = `${EndpointUtilService.prepareEndpoint(
+      this.ENDPOINTS.PRODUCT_BACKLOG.GET.GET_SPRINT,
+      { 'product-backlog-uuid': productBacklogUuid, 'sprint-uuid': sprintUuid}
+    )}`;
+    return this.http.get<Sprint>(endpoint).pipe(
+      map((response) => response),
+      catchError((error) => {
+        console.log(error);
+        const productBacklog = PRODUCT_BACKLOG.find((el)=> el.uuid === productBacklogUuid) as ProductBacklog
+        const sprint = productBacklog?.sprints?.find((el)=> el.uuid === sprintUuid) as Sprint
+        return of(sprint);
+      })
+    );
+  }
+
 
   createSprint(
     sprintData: SprintCreateRequest,

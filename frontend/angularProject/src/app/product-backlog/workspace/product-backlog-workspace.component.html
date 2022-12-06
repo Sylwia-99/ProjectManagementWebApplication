@@ -54,7 +54,7 @@
         </li>
 
         <li *ngFor="let backlogSprints of productBacklog.sprints">
-          <button class="sprint-label">
+          <button class="sprint-label" (click)="viewSprint(productBacklog.uuid, backlogSprints.uuid)">
             {{ backlogSprints.name }}
           </button>
           <ul>

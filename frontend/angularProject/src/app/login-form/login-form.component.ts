@@ -25,7 +25,6 @@ export class LoginFormComponent  {
 
   login() {
     if(this.loginForm.valid){
-      console.log(this.loginForm.value);
       const navigationDetails: string[] = ['/home'];
       this.router.navigate(navigationDetails)
     }

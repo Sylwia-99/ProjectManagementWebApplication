@@ -38,7 +38,6 @@ export class RegisterFormComponent {
 
   register() {
     if(this.registerForm.valid){
-      console.log(this.registerForm.value);
       const navigationDetails: string[] = ['/login'];
 
       this.router.navigate(navigationDetails)

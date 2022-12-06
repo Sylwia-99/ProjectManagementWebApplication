@@ -1,0 +1,67 @@
+status-column-task {
+    .task-container{
+        display: flex;
+        flex-direction: column;
+        background-color: #ffffff8a;   
+        padding: 0.5rem;  
+        margin: 0.5rem 0;  
+        border-radius:1rem;
+        max-height: 6rem;
+        overflow-y: hidden;
+
+        &--header{
+            display: flex;
+            flex-direction: row;
+            height: 2rem;
+        }
+
+        &--description{
+            padding: 1rem;  
+            color: rgb(48 46 46 / 54%);
+        }
+    }
+
+    .task-name{
+        padding: 0.5rem;
+        margin-left: 0.5rem;
+        font-weight: bold;
+        font-size: large;
+    }
+
+    .task-sory-points{
+        color:#6e3586;
+        background-color:#de92ff;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 0.5rem;
+        font-size: smaller;
+    }
+
+    img {
+        width: auto;
+        padding: 0 0.5rem;
+    }
+
+    
+    .task-button{
+        background-color: transparent;
+        border: none;
+        max-width: 3rem;
+
+        img {
+            height: 1rem;
+        }
+    }
+
+    .avatar-img{
+        border: none;
+
+        img {
+            height: 2rem;
+        }
+    } 
+}
