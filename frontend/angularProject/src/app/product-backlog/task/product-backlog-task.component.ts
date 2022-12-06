@@ -27,7 +27,7 @@ export class ProductBackolgTaskComponent {
         uuid: this.uuid,
       },
       width: '40vw',
-      height: '40vh',
+      height: '23rem',
     });
   }
 
