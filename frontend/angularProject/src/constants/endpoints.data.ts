@@ -30,7 +30,9 @@ export const ENDPOINTS = {
       CREATE_SPRINT: `${window.location.origin}/product-backlog/sprint/{user-uuid}`,
       CREATE_TASK: `${window.location.origin}/product-backlog/{workspace-uuid}/task/{user-uuid}`,
     },
-    PUT: {},
+    PUT: {
+      MOVE_TASK_TO_SPRINT: `${window.location.origin}/product-backlog/{user-uuid}/task/{task-uuid}/sprint/{sprint-uuid}`,
+    },
     DELETE: {},
     PATCH: {},
   },

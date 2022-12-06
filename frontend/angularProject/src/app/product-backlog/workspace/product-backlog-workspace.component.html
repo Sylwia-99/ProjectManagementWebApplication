@@ -2,17 +2,12 @@
   <div class="container">
     <button class="product-backlog-button">
       <div (click)="toggleProductBacklogVisibility()">
-        <em 
-          *ngIf="isProductBacklogVisible" 
-          class="material-icons"
-        >
+        <em *ngIf="isProductBacklogVisible" class="material-icons">
           arrow_drop_down</em
         >
-        <em 
-          *ngIf="!isProductBacklogVisible" 
-            class="material-icons"
-        > arrow_drop_up
-          </em>
+        <em *ngIf="!isProductBacklogVisible" class="material-icons">
+          arrow_drop_up
+        </em>
         {{ productBacklog.name }}
       </div>
 
@@ -20,7 +15,9 @@
         <img src="{{ dots.src }}" alt="{{ dots.alt }}" />
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item (click)="createTask()">Utwórz nowe zadanie</button>
+        <button mat-menu-item (click)="createTask()">
+          Utwórz nowe zadanie
+        </button>
         <button mat-menu-item (click)="createSprint()">Dodaj Sprint</button>
         <button mat-menu-item>Dodaj członka</button>
       </mat-menu>
@@ -50,11 +47,15 @@
           <product-backlog-task
             [name]="backlogTask?.name"
             [uuid]="backlogTask?.uuid"
+            (callbackRefreshProductBacklog)="this.refreshProductBacklog()"
           ></product-backlog-task>
         </li>
 
         <li *ngFor="let backlogSprints of productBacklog.sprints">
-          <button class="sprint-label" (click)="viewSprint(productBacklog.uuid, backlogSprints.uuid)">
+          <button
+            class="sprint-label"
+            (click)="viewSprint(productBacklog.uuid, backlogSprints.uuid)"
+          >
             {{ backlogSprints.name }}
           </button>
           <ul>
@@ -62,6 +63,7 @@
               <product-backlog-task
                 [name]="sprintTask?.name"
                 [uuid]="sprintTask?.uuid"
+                (callbackRefreshProductBacklog)="this.refreshProductBacklog()"
               ></product-backlog-task>
             </li>
           </ul>

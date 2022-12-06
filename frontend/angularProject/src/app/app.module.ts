@@ -33,6 +33,7 @@ import { TaskModalComponent } from './product-backlog/modals/task-modal/task-mod
 import { SprintComponent } from './sprint/sprint.component';
 import { StatusColumnComponent } from './sprint/status-column/status-column.component';
 import { TaskComponent } from './sprint/status-column/task/task.component';
+import { MoveTaskToSprintModalComponent } from './product-backlog/modals/move-task-to-sprint-modal/move-task-to-sprint-modal.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { TaskComponent } from './sprint/status-column/task/task.component';
     SprintComponent,
     StatusColumnComponent,
     TaskComponent,
+    MoveTaskToSprintModalComponent,
   ],
   imports: [
     AppRoutingModule,

@@ -1,8 +1,8 @@
 export interface Task {
   uuid: string;
   name: string;
-  acceptanceCriteria: string,
-  userUuid: string, 
+  acceptanceCriteria: string;
+  userUuid: string;
   status: StatusType;
   description?: string;
   storyPoints: number;
@@ -36,18 +36,18 @@ export interface SprintCreateRequest {
 
 export interface TaskCreateRequest {
   name: string;
-  acceptanceCriteria: string,
-  userUuid: string, 
+  acceptanceCriteria: string;
+  userUuid: string;
   status: StatusType;
   description?: string;
   storyPoints: number;
 }
 
 export const enum StatusType {
-  TO_DO ="TO_DO",
-  IN_PROGRESS = "IN_PROGRESS",
-  VERIFICATION = "VERIFICATION",
-  DONE = "DONE"
+  TO_DO = 'TO_DO',
+  IN_PROGRESS = 'IN_PROGRESS',
+  VERIFICATION = 'VERIFICATION',
+  DONE = 'DONE',
 }
 
 export interface User {
@@ -59,7 +59,10 @@ export interface User {
 
 export interface ComboData {
   value: string;
-  label: string
+  label: string;
 }
 
-
+export interface TaskUpdateRequest {
+  uuid: string;
+  name: string;
+}

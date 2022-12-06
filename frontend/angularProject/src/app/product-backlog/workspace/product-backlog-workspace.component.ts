@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
@@ -13,6 +13,9 @@ import { TaskModalComponent } from '../modals/task-modal/task-modal.component';
 })
 export class ProductBackolgWorkspaceComponent {
   @Input() productBacklog: ProductBacklog;
+
+  @Output() callbackRefreshProductBacklog: EventEmitter<any> =
+  new EventEmitter();
 
   readonly dots = DOTS;
 
@@ -51,4 +54,8 @@ export class ProductBackolgWorkspaceComponent {
       queryParams: { productBacklog: productBacklog },
     });
   }
+
+  refreshProductBacklog(): void {
+    this.callbackRefreshProductBacklog.emit();
+    }
 }
