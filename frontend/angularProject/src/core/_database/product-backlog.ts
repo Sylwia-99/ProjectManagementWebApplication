@@ -1,9 +1,4 @@
-import {
-  ProductBacklog,
-  Sprint,
-  StatusType,
-  User,
-} from 'src/interfaces/product-backlog';
+import { ProductBacklog, StatusType, User, Task, Sprint } from "src/interfaces/product-backlog";
 
 export const PRODUCT_BACKLOG: ProductBacklog[] = [
   {
@@ -156,14 +151,19 @@ export const PRODUCT_BACKLOG: ProductBacklog[] = [
   },
 ];
 
-export const TASK = [
+
+export const TASK: Task = 
   {
     uuid: '0-0-0-1',
     name: 'Nazwa zadania',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a ante mi. Duis fermentum rutrum nunc, a aliquam sapien vehicula quis. Morbi malesuada velit aliquam, tristique dolor vel, rhoncus felis. Suspendisse aliquet tempus massa, interdum mattis metus ullamcorper sit amet. Phasellus laoreet, lacus vel pellentesque consequat, lectus purus imperdiet nisl, ut feugiat justo turpis volutpat magna. Suspendisse convallis felis est, vitae gravida sapien eleifend rhoncus. In feugiat a velit sed iaculis. Ut a velit a ex aliquet interdum non vel dui. Phasellus lorem eros, semper eu rhoncus in, mattis at diam.',
-  },
-];
+    userUuid: "0-0-0-1",
+    userFullName: " Sylwia Mosur",
+    acceptanceCriteria: 'Lorem ipsum dolor sit amet, consectetur', 
+    status: StatusType.TO_DO,
+    storyPoints: 3
+  }
 
 export const STATUSES = [
   {

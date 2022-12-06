@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { DOTS, PROFILE } from 'src/constants/constants.data';
+import { MatDialog } from '@angular/material/dialog';
 
+import { ViewComponent } from 'src/app/product-backlog/modals/task-modal/view/view.component';
+import { DOTS, PROFILE } from 'src/constants/constants.data';
 import { Task } from 'src/interfaces/product-backlog';
 
 @Component({
@@ -13,4 +15,18 @@ export class TaskComponent{
   readonly dots = DOTS;
 
   readonly profile = PROFILE;
+
+  constructor(
+    public dialogRef: MatDialog, 
+  ) { }
+
+  viewTask(){
+    {
+      this.dialogRef.open(ViewComponent, {
+        width: '60vw',
+        height: '30rem',
+        data: this.task
+      });
+    }
+  }
 }

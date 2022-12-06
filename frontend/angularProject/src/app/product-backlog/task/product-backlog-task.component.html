@@ -4,7 +4,7 @@
     <img src="{{ dots.src }}" alt="{{ dots.alt }}" />
   </button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item>Edytuj</button>
+    <button mat-menu-item (click)="editTask(this.uuid)">Edytuj</button>
     <button mat-menu-item>Usuń</button>
     <button mat-menu-item (click)="moveTaskToSprint()">
       Przenieś do sprintu
