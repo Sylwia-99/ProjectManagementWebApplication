@@ -3,7 +3,6 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { DOTS } from 'src/constants/constants.data';
 import { ProductBacklogService } from 'src/data/product-backlog.service';
-import { ViewComponent } from '../modals/task-modal/view/view.component';
 import { Task } from 'src/interfaces/product-backlog';
 
 @Component({
@@ -23,16 +22,15 @@ export class ProductBackolgTaskComponent {
   ) { }
 
   editTask(uuid: string){
-    this.productBacklogService.getTask(uuid).subscribe((task: Task) =>  
-        {
-          this.dialogRef.open(ViewComponent, {
-            width: '60vw',
-            height: '50vh',
-            data: task
-          });
-        }
-    );
-    
-    
+    console.log('TO DO')
+    // this.productBacklogService.getTask(uuid).subscribe((task: Task) =>  
+    //     {
+    //       this.dialogRef.open(ViewComponent, {
+    //         width: '60vw',
+    //         height: '50vh',
+    //         data: task
+    //       });
+    //     }
+    // );
   }
 }
