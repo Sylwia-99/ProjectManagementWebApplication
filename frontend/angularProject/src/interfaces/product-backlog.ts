@@ -4,6 +4,7 @@ export interface Task {
   acceptanceCriteria: string,
   userUuid: string, 
   status: StatusType;
+  userFullName?: string;
   description?: string;
   storyPoints: number;
 }
@@ -44,8 +45,8 @@ export interface TaskCreateRequest {
 }
 
 export const enum StatusType {
-  TO_DO ="TO_DO",
-  IN_PROGRESS = "IN_PROGRESS",
+  TO_DO ="TO DO",
+  IN_PROGRESS = "IN PROGRESS",
   VERIFICATION = "VERIFICATION",
   DONE = "DONE"
 }

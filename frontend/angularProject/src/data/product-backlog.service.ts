@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, of } from 'rxjs';
 
@@ -10,12 +10,14 @@ import {
   ProductBacklog,
 } from '../interfaces/product-backlog';
 import { EndpointUtilService } from 'src/app/services/endpoint-util.service';
-import { PRODUCT_BACKLOG } from '../core/_database/product-backlog';
+import { PRODUCT_BACKLOG, TASK } from '../core/_database/product-backlog';
 import { ENDPOINTS } from '../constants/endpoints.data';
 
 @Injectable()
 export class ProductBacklogService {
   private readonly ENDPOINTS = ENDPOINTS;
+
+  readonly taskMock = TASK;
 
   constructor(private http: HttpClient) {}
 
@@ -84,4 +86,19 @@ export class ProductBacklogService {
       })
     );
   }
+
+  getTask(uuid: string): Observable<Task> {
+    const endpoint = `${EndpointUtilService.prepareEndpoint(
+      this.ENDPOINTS.PRODUCT_BACKLOG.GET.GET_TASK,
+      { 'task-uuid': uuid }
+    )}`;
+
+    return this.http.get<Task>(endpoint).pipe(
+      map((response) => response),
+      catchError((error) => {
+        console.log(error);
+        return of(this.taskMock);
+      })
+    )
+  }  
 }
