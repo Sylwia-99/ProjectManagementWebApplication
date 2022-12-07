@@ -1,8 +1,8 @@
 export interface Task {
   uuid: string;
   name: string;
-  acceptanceCriteria: string,
-  userUuid: string, 
+  acceptanceCriteria: string;
+  userUuid: string;
   status: StatusType;
   userFullName?: string;
   description?: string;
@@ -37,8 +37,8 @@ export interface SprintCreateRequest {
 
 export interface TaskCreateRequest {
   name: string;
-  acceptanceCriteria: string,
-  userUuid: string, 
+  acceptanceCriteria: string;
+  userUuid: string;
   status: StatusType;
   description?: string;
   storyPoints: number;
@@ -60,7 +60,10 @@ export interface User {
 
 export interface ComboData {
   value: string;
-  label: string
+  label: string;
 }
 
-
+export interface TaskUpdateRequest {
+  uuid: string;
+  name: string;
+}
