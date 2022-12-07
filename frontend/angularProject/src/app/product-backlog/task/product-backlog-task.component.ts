@@ -1,10 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 import { MoveTaskToSprintModalComponent } from '../modals/move-task-to-sprint-modal/move-task-to-sprint-modal.component';
 import { DOTS } from 'src/constants/constants.data';
 import { ProductBacklogService } from 'src/data/product-backlog.service';
 import { Task } from 'src/interfaces/product-backlog';
+import { TaskModalComponent } from '../modals/task-modal/task-modal.component';
 
 @Component({
   selector: 'product-backlog-task',
@@ -26,7 +27,7 @@ export class ProductBackolgTaskComponent {
   ) { }
 
   moveTaskToSprint(): void {
-    const dialog = this.dialogRef.open(MoveTaskToSprintModalComponent, {
+    this.dialogRef.open(MoveTaskToSprintModalComponent, {
       data: {
         name: this.name,
         uuid: this.uuid,
@@ -41,15 +42,23 @@ export class ProductBackolgTaskComponent {
   }
 
   editTask(uuid: string){
-    console.log('TO DO')
-    // this.productBacklogService.getTask(uuid).subscribe((task: Task) =>  
-    //     {
-    //       this.dialogRef.open(ViewComponent, {
-    //         width: '60vw',
-    //         height: '50vh',
-    //         data: task
-    //       });
-    //     }
-    // );
+    this.productBacklogService.getTask(uuid).subscribe((task: Task) =>  
+      {
+        const dialog =  this.dialogRef.open(TaskModalComponent, {            
+          width: '60vw',
+          height: '52rem',
+          data: task
+        });
+
+        dialog.afterClosed().subscribe((result: Task) => {
+          if(result)
+            task.status = result.status 
+            this.productBacklogService.editTask(result, uuid).subscribe((result: Task) => {
+              console.log(result)
+            })
+        });
+      });
+      
+   
   }
 }

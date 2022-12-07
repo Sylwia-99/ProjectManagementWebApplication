@@ -1,7 +1,6 @@
 task-modal{
     .cdk-dialog-container{        
         width: 32rem !important;
-        max-height: 10rem;
     }  
 
     .row{
@@ -58,7 +57,8 @@ task-modal{
     .description {
         .mat-form-field-infix{
             border-radius: 2rem;
-            height: 5rem !important;
+            min-height: 5rem !important;
+            height: fit-content !important;
         }
     }
 
@@ -74,6 +74,11 @@ task-modal{
 
     input.mat-input-element{
         padding: 0.7rem;
+    }
+
+  
+    textarea.mat-input-element{
+        padding: 1rem !important;
     }
 
     .mat-select-value {
