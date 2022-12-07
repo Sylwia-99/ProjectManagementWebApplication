@@ -42,8 +42,7 @@ export class TaskModalComponent implements OnInit{
   ) { }
 
   ngOnInit(): void {
-      if(this.data){
-        console.log(this.data)
+      if(this.data?.uuid){
         this.taskForm.patchValue({
           name: this.data.name,
           description: this.data.description,

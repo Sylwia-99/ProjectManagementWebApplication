@@ -34,7 +34,8 @@ export class ProductBackolgWorkspaceComponent {
     });
 
     dialog.afterClosed().subscribe((result: Sprint) => {
-      this.productBacklog?.sprints?.push(result);
+      if(result)
+        this.productBacklog?.sprints?.push(result);
     });
   }
 

@@ -43,6 +43,9 @@
       </div>
 
       <ng-template #productBacklogList>
+        <div *ngIf="productBacklog?.backlog" class="backlog-label">
+          Backlog
+        </div>
         <li *ngFor="let backlogTask of productBacklog.backlog">
           <product-backlog-task
             [name]="backlogTask.name"
