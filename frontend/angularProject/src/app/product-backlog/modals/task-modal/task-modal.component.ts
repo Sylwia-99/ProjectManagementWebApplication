@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
@@ -10,7 +10,7 @@ import { ComboData, StatusType, TaskCreateRequest, User, Task} from 'src/interfa
   selector: 'task-modal',
   templateUrl: './task-modal.component.html',
 })
-export class TaskModalComponent {
+export class TaskModalComponent implements OnInit{
 
   statuses: ComboData[] = STATUSES;
 
@@ -25,7 +25,6 @@ export class TaskModalComponent {
   status =  new FormControl(StatusType.TO_DO);
   storyPoints = new FormControl('');
 
-
   taskForm: FormGroup = this.builder.group({
     name: this.name,
     description: this.description,
@@ -36,11 +35,24 @@ export class TaskModalComponent {
   });
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: any,    
+    @Inject(MAT_DIALOG_DATA) public data: Task,    
     public dialogRef: MatDialogRef<TaskModalComponent>, 
     private builder: FormBuilder,
     private productBacklogService: ProductBacklogService
   ) { }
+
+  ngOnInit(): void {
+      if(this.data?.uuid){
+        this.taskForm.patchValue({
+          name: this.data.name,
+          description: this.data.description,
+          acceptanceCriteria: this.data.acceptanceCriteria,
+          userUuid: this.data.userUuid,
+          status: this.data.status,
+          storyPoints: this.data.storyPoints
+        });
+      }
+  }
 
   save() {
     if(this.taskForm.valid){

@@ -136,4 +136,23 @@ export class ProductBacklogService {
       })
     )
   }  
+
+  
+  editTask(
+    taskData: Task,
+    taskUuid: string
+  ): Observable<Task> {
+    const endpoint = `${EndpointUtilService.prepareEndpoint(
+      this.ENDPOINTS.PRODUCT_BACKLOG.PUT.EDIT_TASK,
+      { 'task-uuid': taskUuid }
+    )}`;
+
+    return this.http.put<Task>(endpoint, taskData).pipe(
+      map((response) => response),
+      catchError((error) => {
+        console.log(error);
+        return of(taskData);
+      })
+    )
+  }
 }

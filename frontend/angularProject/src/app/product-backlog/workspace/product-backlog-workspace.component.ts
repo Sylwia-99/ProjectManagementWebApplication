@@ -34,18 +34,20 @@ export class ProductBackolgWorkspaceComponent {
     });
 
     dialog.afterClosed().subscribe((result: Sprint) => {
-      this.productBacklog?.sprints?.push(result);
+      if(result)
+        this.productBacklog?.sprints?.push(result);
     });
   }
 
   createTask(): void {
     const dialog = this.dialogRef.open(TaskModalComponent, {
       width: '60vw',
-      height: '75vh',
+      height: '52rem',
     });
 
     dialog.afterClosed().subscribe((result: Task) => {
-      this.productBacklog?.backlog?.push(result);
+      if(result)
+        this.productBacklog?.backlog?.push(result);
     });
   }
 

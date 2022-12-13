@@ -10,7 +10,7 @@
           <img src="{{ dots.src }}" alt="{{ dots.alt }}" />
         </button>
         <mat-menu #menu="matMenu">
-          <button mat-menu-item>Zmień status zadania</button>
+          <button mat-menu-item (click)="editTask()">Zmień status zadania</button>
           <button mat-menu-item (click)="viewTask()">Pokaż zadanie</button>
         </mat-menu>
         <div

@@ -28,7 +28,7 @@ product-backlog-workspace{
         }
     }
 
-    .sprint-label{
+    .sprint-label, .backlog-label{
         background-color: #175DC8;
         color: white;
         min-width: 12rem;
@@ -38,6 +38,11 @@ product-backlog-workspace{
         border-radius: 2em;
         font-size: 1.2em !important;
         align-self: start;
+    }
+
+    .backlog-label{
+        min-width: 10rem !important;
+        align-self: center;
     }
 
 
