@@ -1,0 +1,42 @@
+add-member-modal{
+    .cdk-dialog-container{        
+        width: 100% !important;
+    }  
+
+    .row{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .close-button {
+        min-width: auto;
+        float: right;
+        background: none;
+        border: none;
+        font-weight: bolder;
+    }
+
+    .title {
+        display: flex;
+        align-items: center;
+        margin-left: 0.8rem;
+    }
+
+    .form-container-button{
+        background-color: #175DC8;
+        color: white;
+        border: 0rem;
+        border-radius: 1rem;
+        margin: 0 auto 1.5rem auto;
+        min-width: 12rem;
+        padding: 0.8rem 3rem;
+    }
+
+    .mat-select-trigger{
+        background-color: #b3e5ff;
+        border: solid #707070b0 0.1rem;
+        border-radius: 24rem;
+        height: 2rem;
+        padding: 1rem;
+    }
+}

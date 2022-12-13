@@ -16,7 +16,9 @@ export const ENDPOINTS = {
     POST: {
       CREATE_USER_WORK_SPACE: `${window.location.origin}/workspace/{user-uuid}`,
     },
-    PUT: {},
+    PUT: {
+      ADD_MEMBER:`${window.location.origin}/workspace/{user-uuid}`
+    },
     DELETE: {},
     PATCH: {},
   },
