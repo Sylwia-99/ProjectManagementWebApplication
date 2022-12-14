@@ -4,13 +4,16 @@ const keycloakOptions: KeycloakOptions = {
 	initOptions: {
 		pkceMethod: 'S256', 
 		redirectUri: 'http://localhost:4200/home',   
-		checkLoginIframe: false
+		checkLoginIframe: false,
+		onLoad: 'login-required'
 	},
     config: {
         realm: 'master',
         url: 'http://localhost:8080/auth',
         clientId: 'frontend',  
-      },
+    },
+	enableBearerInterceptor: true,
+	loadUserProfileAtStartUp: true,
 };
 
 export const ENVIRONMENT = { 

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable, of } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 import { ENDPOINTS } from 'src/constants/endpoints.data';
 
@@ -15,8 +15,6 @@ export class UserService {
 	) {}
 
 	getUserSettings(): Observable<any> {
-		 return of({"userFullName":"Sylwia Rusek","userUuid":"548ff539-d188-4c2c-806b-d03036817281", "username": "mosurs"})
-		// return this.http.get<any>(this.ENDPOINTS.USER.GET.GET_USER_SETTINGS)
-		// 	.pipe(map(event => event.json()));
-		}
+		return this.http.get<any>(this.ENDPOINTS.USER.GET.GET_USER_SETTINGS)
+			.pipe(map(event => event.json()));		}
 }

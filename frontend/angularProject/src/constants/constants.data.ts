@@ -23,6 +23,10 @@ export const DOTS = {
 
 export const LOCAL_STORAGE = {
     USERNAME: 'USERNAME',
+    USER_ID: 'USER_ID',
+    USER_NAME: 'USER_NAME',
+    USER_SURNAME: 'USER_NAME',
+    USER_EMAIL: 'USER_EMAIL'
 };
 
 export const SESSIONS_STORAGE = {
