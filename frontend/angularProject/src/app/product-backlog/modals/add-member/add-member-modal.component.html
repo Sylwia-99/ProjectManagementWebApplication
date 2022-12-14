@@ -1,0 +1,14 @@
+<button class="close-button" mat-button (click)="close()">X</button>
+<h2 mat-dialog-title class="title">Dodaj Członka</h2>
+
+<mat-dialog-content [formGroup]="memberForm">
+  <div class="row">
+    <mat-select >
+      <mat-option *ngFor="let user of users" value="user.uuid" >{{user.name+ " " + user.surname}}</mat-option>
+    </mat-select>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button class="form-container-button" (click)="save()">Zapisz</button>
+</mat-dialog-actions>

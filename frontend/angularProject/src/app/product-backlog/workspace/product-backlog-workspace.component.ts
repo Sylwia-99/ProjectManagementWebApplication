@@ -6,6 +6,7 @@ import { AddSprintModalComponent } from '../modals/add-sprint-modal/add-sprint-m
 import { ProductBacklog, Sprint, Task } from 'src/interfaces/product-backlog';
 import { DOTS } from 'src/constants/constants.data';
 import { TaskModalComponent } from '../modals/task-modal/task-modal.component';
+import { AddMemberModalComponent } from '../modals/add-member/add-member-modal.component';
 
 @Component({
   selector: 'product-backlog-workspace',
@@ -30,7 +31,7 @@ export class ProductBackolgWorkspaceComponent {
   createSprint(): void {
     const dialog = this.dialogRef.open(AddSprintModalComponent, {
       width: '60vw',
-      height: '50vh',
+      height: '51vh',
     });
 
     dialog.afterClosed().subscribe((result: Sprint) => {
@@ -48,6 +49,18 @@ export class ProductBackolgWorkspaceComponent {
     dialog.afterClosed().subscribe((result: Task) => {
       if(result)
         this.productBacklog?.backlog?.push(result);
+    });
+  }
+
+  addMember():void{
+    const dialog = this.dialogRef.open(AddMemberModalComponent, {
+      width: '30vw',
+      height: '12rem',
+    });
+
+    dialog.afterClosed().subscribe((result: any) => {
+      if(result)
+        console.log("dodano członka")
     });
   }
 
