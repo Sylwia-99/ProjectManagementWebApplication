@@ -1,8 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { USERS } from 'src/core/_database/product-backlog';
 
+import { USERS } from 'src/core/_database/product-backlog';
 import { WorkspaceService } from 'src/data/work-space.service';
 import { User } from 'src/interfaces/product-backlog';
 import { WorkSpace } from 'src/interfaces/workspace';
