@@ -7,6 +7,8 @@ import {
   Task,
   Sprint,
   TaskCreateRequest,
+  ProductBacklog,
+  TaskUpdateRequest,
 } from '../interfaces/product-backlog';
 import { EndpointUtilService } from 'src/app/services/endpoint-util.service';
 import { PRODUCT_BACKLOG, TASK } from '../core/_database/product-backlog';
@@ -28,6 +30,29 @@ export class ProductBacklogService {
 
       subscriber.complete();
     });
+  }
+
+  getSprint(
+    sprintUuid: string,
+    productBacklogUuid: string
+  ): Observable<Sprint> {
+    const endpoint = `${EndpointUtilService.prepareEndpoint(
+      this.ENDPOINTS.PRODUCT_BACKLOG.GET.GET_SPRINT,
+      { 'product-backlog-uuid': productBacklogUuid, 'sprint-uuid': sprintUuid }
+    )}`;
+    return this.http.get<Sprint>(endpoint).pipe(
+      map((response) => response),
+      catchError((error) => {
+        console.log(error);
+        const productBacklog = PRODUCT_BACKLOG.find(
+          (el) => el.uuid === productBacklogUuid
+        ) as ProductBacklog;
+        const sprint = productBacklog?.sprints?.find(
+          (el) => el.uuid === sprintUuid
+        ) as Sprint;
+        return of(sprint);
+      })
+    );
   }
 
   createSprint(
@@ -68,6 +93,35 @@ export class ProductBacklogService {
     );
   }
 
+  moveTaskToSprint(
+    body: TaskUpdateRequest,
+    [personUUID, sprintUUID]: string[]
+  ): Observable<unknown> {
+    // const endpoint = `${EndpointUtilService.prepareEndpoint(
+    //   this.ENDPOINTS.PRODUCT_BACKLOG.PUT.MOVE_TASK_TO_SPRINT,
+    //   {
+    //     'user-uuid': personUUID,
+    //     'sprint-uuid': sprintUUID,
+    //   }
+    // )}`;
+
+    //   return this.http
+    //     .patch<any>(endpoint, body)
+    //     .pipe(map((response) => response.json()));
+    // }
+
+    const response = { status: 204 };
+
+    let obs = new Observable((subscriber) => {
+      setTimeout(() => {
+        subscriber.next(response);
+        subscriber.complete();
+      }, 20);
+    });
+
+    return obs;
+  }
+
   getTask(uuid: string): Observable<Task> {
     const endpoint = `${EndpointUtilService.prepareEndpoint(
       this.ENDPOINTS.PRODUCT_BACKLOG.GET.GET_TASK,
@@ -82,4 +136,23 @@ export class ProductBacklogService {
       })
     )
   }  
+
+  
+  editTask(
+    taskData: Task,
+    taskUuid: string
+  ): Observable<Task> {
+    const endpoint = `${EndpointUtilService.prepareEndpoint(
+      this.ENDPOINTS.PRODUCT_BACKLOG.PUT.EDIT_TASK,
+      { 'task-uuid': taskUuid }
+    )}`;
+
+    return this.http.put<Task>(endpoint, taskData).pipe(
+      map((response) => response),
+      catchError((error) => {
+        console.log(error);
+        return of(taskData);
+      })
+    )
+  }
 }

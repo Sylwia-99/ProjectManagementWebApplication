@@ -1,0 +1,26 @@
+<div class="task-container">
+    <div class="task-container--header">
+        <div class="task-name">
+            {{ task.name }}
+        </div>
+        <div class="task-sory-points">
+            Sp: {{ task.storyPoints }}
+        </div>
+        <button class="task-button" [matMenuTriggerFor]="menu">
+          <img src="{{ dots.src }}" alt="{{ dots.alt }}" />
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="editTask()">Zmień status zadania</button>
+          <button mat-menu-item (click)="viewTask()">Pokaż zadanie</button>
+        </mat-menu>
+        <div
+            class="avatar-img"
+        >
+            <img src="{{ profile.src }}" alt="{{ profile.alt }}" />
+        </div>
+    </div>
+    <div class="task-container--description">
+        {{ task.description }}
+    </div>
+</div>
+  

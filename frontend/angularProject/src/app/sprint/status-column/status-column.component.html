@@ -1,0 +1,49 @@
+    <div class="status-column-container">
+      <button class="status-column-button">
+        <div (click)="toggleStatusColumnVisibility()">
+          <em 
+            *ngIf="isStatusColumnVisible; else statusColumnHidden" 
+            class="material-icons"
+          >
+            arrow_drop_down</em
+          >
+          <ng-template #statusColumnHidden>
+            <em 
+                class="material-icons"
+                > arrow_drop_up
+            </em>
+          </ng-template>
+            {{status.label}}
+        </div>
+      </button>
+
+      <div class="status-column-content">
+        <div
+          *ngIf="
+              !isStatusColumnVisible;
+            else statusColumnList
+          "
+          [ngClass]="
+            !isStatusColumnVisible ? 'status-column-invisible' : 'status-column'
+          "
+        >
+          <div *ngIf="isStatusColumnVisible">
+            <mat-icon>cancel</mat-icon> Brak przestrzeni roboczych
+          </div>
+        </div>
+  
+        <ng-template #statusColumnList>
+          <ul *ngFor="let task of tasks">
+            <ng-container [ngSwitch]="task?.status">
+                <ng-container *ngSwitchCase="status.value">
+                    <status-column-task
+                      [task]="task"
+                    ></status-column-task>
+                </ng-container>
+                <ng-container *ngSwitchDefault><div></div></ng-container>
+            </ng-container>
+           
+          </ul>
+        </ng-template>
+      </div>
+    </div>

@@ -32,9 +32,14 @@ import { ProductBackolgWorkspaceComponent } from './product-backlog/workspace/pr
 import { ProductBacklogService } from 'src/data/product-backlog.service';
 import { ProductBackolgTaskComponent } from './product-backlog/task/product-backlog-task.component';
 import { WorkSpaceModalComponent } from './work-space-modal/work-space-modal.component';
-import { AddSprintModalComponent } from './product-backlog/modals/add-sprint-modal.component';
+import { AddSprintModalComponent } from './product-backlog/modals/add-sprint-modal/add-sprint-modal.component';
 import { TaskModalComponent } from './product-backlog/modals/task-modal/task-modal.component';
 import { ViewComponent } from './product-backlog/modals/task-modal/view/view.component';
+import { SprintComponent } from './sprint/sprint.component';
+import { StatusColumnComponent } from './sprint/status-column/status-column.component';
+import { TaskComponent } from './sprint/status-column/task/task.component';
+import { MoveTaskToSprintModalComponent } from './product-backlog/modals/move-task-to-sprint-modal/move-task-to-sprint-modal.component';
+import { AddMemberModalComponent } from './product-backlog/modals/add-member/add-member-modal.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +55,11 @@ import { ViewComponent } from './product-backlog/modals/task-modal/view/view.com
     AddSprintModalComponent,
     TaskModalComponent,
     ViewComponent,
+    SprintComponent,
+    StatusColumnComponent,
+    TaskComponent,
+    MoveTaskToSprintModalComponent,
+    AddMemberModalComponent
   ],
   imports: [
     AppRoutingModule,

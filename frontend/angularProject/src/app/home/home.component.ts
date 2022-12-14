@@ -6,6 +6,7 @@ import { DOTS } from 'src/constants/constants.data';
 import { AuthenticationService } from '../services/authentication.service';
 import { WorkspaceService } from "../../data/work-space.service"
 import { WorkSpaceModalComponent } from '../work-space-modal/work-space-modal.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'home',
@@ -21,7 +22,8 @@ export class HomeComponent implements OnInit {
   constructor(
     private authenticationService: AuthenticationService, 
     private workspaceService: WorkspaceService, 
-    public dialogRef: MatDialog
+    public dialogRef: MatDialog,
+    private router: Router
     ){}
 
 	ngOnInit(): void {
@@ -41,11 +43,16 @@ export class HomeComponent implements OnInit {
   createWorkSpace(): void{
     const dialog = this.dialogRef.open(WorkSpaceModalComponent, {
       width:'60vw',  
-      height:'55vh',
+      height:'26rem',
     });
 
     dialog.afterClosed().subscribe((result: WorkSpace) => {
-      this.workspace.push(result)
+      if(result)
+        this.workspace.push(result)
     });
+  }
+
+  viewBacklog(): void {
+    this.router.navigate(['/product-backlog']);
   }
 }

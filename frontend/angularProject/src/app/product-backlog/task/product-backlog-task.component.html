@@ -6,6 +6,8 @@
   <mat-menu #menu="matMenu">
     <button mat-menu-item (click)="editTask(this.uuid)">Edytuj</button>
     <button mat-menu-item>Usuń</button>
-    <button mat-menu-item>Przenieś do sprintu</button>
+    <button mat-menu-item (click)="moveTaskToSprint()">
+      Przenieś do sprintu
+    </button>
   </mat-menu>
 </div>

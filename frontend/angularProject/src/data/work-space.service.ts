@@ -49,4 +49,22 @@ export class WorkspaceService {
 			})
 		); 
 	}
+
+	addMember(
+		workspaceData: WorkSpace,
+		wokrkspaceUUID: string
+	  ): Observable<WorkSpace> {
+		const endpoint = `${EndpointUtilService.prepareEndpoint(
+		  this.ENDPOINTS.PRODUCT_BACKLOG.PUT.EDIT_TASK,
+		  { 'workspace-uuid': wokrkspaceUUID }
+		)}`;
+	
+		return this.http.put<WorkSpace>(endpoint, workspaceData).pipe(
+		  map((response) => response),
+		  catchError((error) => {
+			console.log(error);
+			return of(workspaceData);
+		  })
+		)
+	  }
 }

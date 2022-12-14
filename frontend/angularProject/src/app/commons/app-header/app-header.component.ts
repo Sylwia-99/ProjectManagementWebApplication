@@ -12,7 +12,10 @@ enum ButtonState {
   selector: 'app-header',
   templateUrl: './app-header.component.html',
 })
-export class AppHeaderComponent {
+
+export class AppHeaderComponent implements OnInit{
+  @Input() sprintName: string | undefined;
+  
   @Output() logout = new EventEmitter();
 
   readonly profile = PROFILE;
@@ -21,5 +24,13 @@ export class AppHeaderComponent {
   
   currentPage = ButtonState.MainPage;
 
+  isSprintView = false;
+
   constructor(public router: Router) {}
+
+  ngOnInit(): void {
+    if (this.router.url.includes('/sprint')){
+      this.isSprintView = true
+    }
+  }
 }

@@ -4,6 +4,7 @@
     <li *ngFor="let pb of productBacklog">
       <product-backlog-workspace
         [productBacklog]="pb"
+        (callbackRefreshProductBacklog)="this.refreshProductBacklog()"
       ></product-backlog-workspace>
     </li>
   </div>

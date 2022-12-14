@@ -16,14 +16,16 @@
         </mat-form-field>
         <label 
             for="description" 
-            class= "form-label"
+            class= "form-label description"
         >
             Opis            
         </label>
         <mat-form-field appearance="fill" class="description">
-            <input           
-                matInput
-                formControlName="description">
+            <textarea 
+                matInput 
+                formControlName="description" 
+                rows="4" 
+            ></textarea>
         </mat-form-field>
         <label 
             for="acceptanceCriteria" 

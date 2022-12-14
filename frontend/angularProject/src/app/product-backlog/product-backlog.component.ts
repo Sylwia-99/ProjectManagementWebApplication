@@ -14,6 +14,10 @@ export class ProductBackolgComponent {
   constructor(private productBacklogService: ProductBacklogService) {}
 
   ngOnInit(): void {
+    this.refreshProductBacklog();
+  }
+
+  refreshProductBacklog(): void {
     this.productBacklogService
       .getUserProductBacklog(['user-id'])
       .subscribe((res: any) => {

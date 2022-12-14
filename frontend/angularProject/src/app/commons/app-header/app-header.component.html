@@ -1,6 +1,7 @@
 <div class="content">
-  <img src="{{ logo.src }}" alt="{{ logo.alt }}" />
-
+  <div class="logo-img">
+    <img src="{{ logo.src }}" alt="{{ logo.alt }}" />
+  </div>
   <div class="header-buttons">
     <a
       routerLink="/home"
@@ -17,6 +18,12 @@
         'app-header-button': router.url !== '/product-backlog'
       }"
       >Product Backlog</a
+    >
+    <a *ngIf="sprintName" 
+    [ngClass]="{
+      'app-header-button__current-page': isSprintView,
+      'app-header-button': !isSprintView
+    }">{{sprintName}}</a
     >
   </div>
   <button

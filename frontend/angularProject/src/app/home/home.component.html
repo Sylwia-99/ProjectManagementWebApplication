@@ -36,7 +36,7 @@
                 <img src="{{ dots.src }}" alt="{{ dots.alt }}" />
               </button>
               <mat-menu #menu="matMenu">
-                <button mat-menu-item>Product Backlog</button>
+                <button mat-menu-item (click)="viewBacklog()">Product Backlog</button>
               </mat-menu>
             </div>
             <div class="card-description">

@@ -1,6 +1,7 @@
-task-modal{
+move-task-to-sprint-modal{
     .cdk-dialog-container{        
         width: 32rem !important;
+        max-height: 10rem;
     }  
 
     .row{
@@ -35,15 +36,6 @@ task-modal{
     .form-label{
         padding: 0rem 1rem ;
         font-size: large;
-        font-weight: 500;
-    }
-
-    .row >.mat-form-field> .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix{
-        display: flex;
-        flex-direction: column;
-        background-color: #b3e5ff;
-        border: solid #707070b0 0.1rem;
-        border-radius: 24rem;
     }
 
     .mat-form-field-infix{
@@ -52,14 +44,6 @@ task-modal{
         border: solid #707070b0 0.1rem;
         border-radius: 24rem;
         height: 1.5rem;
-    }
-
-    .description {
-        .mat-form-field-infix{
-            border-radius: 2rem;
-            min-height: 5rem !important;
-            height: fit-content !important;
-        }
     }
 
     .mat-form-field-flex{
@@ -76,13 +60,12 @@ task-modal{
         padding: 0.7rem;
     }
 
-  
-    textarea.mat-input-element{
-        padding: 1rem !important;
-    }
-
     .mat-select-value {
         margin: 1rem 0 0 1rem;
+    }
+
+    .mat-form-field-autofill-control{
+        margin: 0.3rem 0 0 0.5rem;
     }
 
     .mat-select-arrow-wrapper {
