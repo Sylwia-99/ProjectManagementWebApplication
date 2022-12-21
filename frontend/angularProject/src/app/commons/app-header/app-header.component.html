@@ -35,6 +35,6 @@
   </button>
 
   <mat-menu #menu="matMenu">
-    <button mat-menu-item>Wyloguj</button>
+    <button mat-menu-item (click)="logout.emit()">Wyloguj</button>
   </mat-menu>
 </div>

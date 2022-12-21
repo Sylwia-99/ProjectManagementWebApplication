@@ -1,61 +1,52 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { KeycloakGuard } from './guards/keycloak.guard';
 
-import { LoginFormComponent } from './login-form/login-form.component';
-import { NavigationComponent } from './navigation/navigation.component';
-import { RegisterFormComponent } from './register-form/register-form.component';
 import { ProductBackolgComponent } from './product-backlog/product-backlog.component';
+import { UserSettingResolver } from './services/user-setting.resolver';
 import { SprintComponent } from './sprint/sprint.component';
 
-const routes: Routes = [
-  {
-    path: '',
-    data: {
-      roles: [],
-    },
-    component: NavigationComponent,
-    children: [
-      {
+const routes: Routes = [{
+  path: '',
+  canActivate: [KeycloakGuard],
+  data: {
+    roles: ['user', 'admin'],
+    keycloakLogic: 'or',
+  },
+  resolve: { UserSettingResolver },
+  children: [ 
+      { 
         path: '',
         children: [
           {
-            path: '',
-            pathMatch: 'full',
-            redirectTo: 'home',
+          path: '',
+          pathMatch: 'full',
+          redirectTo: 'home'
           },
           {
-            path: 'home',
+            path: 'home', 
             loadChildren: () =>
-              import('./home/home.module').then((m) => m.HomeModule),
-          },
-          { 
-            path: 'login', 
-            component: LoginFormComponent 
-          },
-          { 
-            path: 'register', 
-            component: RegisterFormComponent 
+              import('./home/home.module').then(
+                (m) => m.HomeModule
+                ) 
           },
           { 
             path: 'product-backlog', 
-            component: ProductBackolgComponent,
-          },
+            component: ProductBackolgComponent },
           {
             path: 'sprint/:uuid', 
             component: SprintComponent,
           },
-        ],
-      },
-      {
-        path: '**',
-        component: NavigationComponent,
-      },
-    ],
-  },
-];
+        ]
+      }
+    ]
+  }
+] 
+
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
+  imports: [RouterModule.forRoot(routes, {relativeLinkResolution: 'legacy'})],
   exports: [RouterModule],
+  providers: [UserSettingResolver]
 })
 export class AppRoutingModule {}
