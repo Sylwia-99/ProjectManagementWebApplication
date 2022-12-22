@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { LOCAL_STORAGE } from 'src/constants/constants.data';
 import { WORK_SPACE } from 'src/core/_database/work-space';
 
 import { WorkspaceService } from 'src/data/work-space.service';
@@ -33,8 +34,9 @@ export class WorkSpaceModalComponent {
 
   save() {
     if(this.workSpaceForm.valid){
+      const userUuid = LOCAL_STORAGE.USER_ID;
       let workSpaceCreateRequest: WorkSpaceCreateRequest = this.workSpaceForm.value
-      this.workspaceService.createUserWorkSpace(workSpaceCreateRequest,["user-id"])
+      this.workspaceService.createUserWorkSpace(workSpaceCreateRequest, userUuid)
         .subscribe(workspace =>  
           {
             this.dialogRef.close(workspace);

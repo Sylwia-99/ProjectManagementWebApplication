@@ -5,8 +5,8 @@
   </button>
   <mat-menu #menu="matMenu">
     <button mat-menu-item (click)="editTask(this.uuid)">Edytuj</button>
-    <button mat-menu-item>Usuń</button>
-    <button mat-menu-item (click)="moveTaskToSprint()">
+    <button mat-menu-item (click)="removeTask(this.uuid)">Usuń</button>
+    <button *ngIf="!isSprintTask" mat-menu-item (click)="moveTaskToSprint(this.uuid)">
       Przenieś do sprintu
     </button>
   </mat-menu>

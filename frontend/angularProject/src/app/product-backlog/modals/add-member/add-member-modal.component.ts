@@ -1,8 +1,9 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { USERS } from 'src/core/_database/product-backlog';
+import { UserService } from 'src/data/user.service';
 import { WorkspaceService } from 'src/data/work-space.service';
 import { User } from 'src/interfaces/product-backlog';
 import { WorkSpace } from 'src/interfaces/workspace';
@@ -11,7 +12,7 @@ import { WorkSpace } from 'src/interfaces/workspace';
   selector: 'add-member-modal',
   templateUrl: './add-member-modal.component.html',
 })
-export class AddMemberModalComponent {
+export class AddMemberModalComponent{
   isInvalidFlag = false;
 
   member = new FormControl('');
@@ -26,8 +27,12 @@ export class AddMemberModalComponent {
     @Inject(MAT_DIALOG_DATA) public data: any,
     public dialogRef: MatDialogRef<AddMemberModalComponent>,
     private builder: FormBuilder,
-    private workspaceService: WorkspaceService
+    private workspaceService: WorkspaceService,
+    private userService: UserService
+
   ) {}
+
+ 
 
   save() {
     if (this.memberForm.valid) {

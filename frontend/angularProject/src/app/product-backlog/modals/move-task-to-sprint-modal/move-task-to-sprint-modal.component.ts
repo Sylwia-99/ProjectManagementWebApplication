@@ -34,9 +34,9 @@ export class MoveTaskToSprintModalComponent {
     if (this.sprintForm.valid) {
       let moveTaskToSprint: TaskUpdateRequest = this.sprintForm.value;
       this.productBacklogService
-        .moveTaskToSprint(moveTaskToSprint, ['personUUID', 'sprintUUID'])
-        .subscribe(() => {
-          this.dialogRef.close();
+        .moveTaskToSprint(moveTaskToSprint, ['personUUID', this.data.uuid])
+        .subscribe((result) => {          
+          this.dialogRef.close(result);
         });
     } else {
       this.isInvalidFlag = true;

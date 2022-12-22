@@ -73,4 +73,8 @@ export class ProductBackolgWorkspaceComponent {
   refreshProductBacklog(): void {
     this.callbackRefreshProductBacklog.emit();
     }
+
+  editTask(task: Task): void{
+    this.callbackRefreshProductBacklog.emit();
+  }
 }

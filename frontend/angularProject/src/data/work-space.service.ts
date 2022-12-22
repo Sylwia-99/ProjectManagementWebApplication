@@ -1,7 +1,8 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, of } from 'rxjs';
 import { EndpointUtilService } from 'src/app/services/endpoint-util.service';
+import * as uuid from 'uuid';
 
 import { WorkSpace, WorkSpaceCreateRequest } from 'src/interfaces/workspace';
 import { ENDPOINTS } from '../constants/endpoints.data';
@@ -18,13 +19,12 @@ export class WorkspaceService {
 	) {}
 
 	getUserWorkSpace(
-		[personUUID]: string[]
+		personUUID: string
 	): Observable<any> {
 		return new Observable<any>((subscriber) => {
 			subscriber.next({
 				WORK_SPACE
 			});
-
 			subscriber.complete();
 		});
 		// return this.http.get<any>(this.ENDPOINTS.WORK_SPACE.GET.GET_USER_WORK_SPACES)
@@ -33,7 +33,7 @@ export class WorkspaceService {
 
 	createUserWorkSpace(
 		workSpace: WorkSpaceCreateRequest,
-		[personUUID]: string[]
+		personUUID: string
 	): Observable<WorkSpace> {
 		const endpoint = `${EndpointUtilService.prepareEndpoint(
 			this.ENDPOINTS.WORK_SPACE.POST.CREATE_USER_WORK_SPACE,
@@ -42,9 +42,9 @@ export class WorkspaceService {
 
 		return this.http.post<WorkSpace>(endpoint, workSpace)
 			.pipe(map((response) => response),
-			catchError((error) => {
-				console.log(error)
-				let newWorkSpace: WorkSpace = {...workSpace, uuid: '0-0-0-4'}
+			catchError(() => {
+				const newUuid = uuid.v4();
+				let newWorkSpace: WorkSpace = {...workSpace, uuid: newUuid}
 				return of(newWorkSpace)
 			})
 		); 
@@ -61,8 +61,7 @@ export class WorkspaceService {
 	
 		return this.http.put<WorkSpace>(endpoint, workspaceData).pipe(
 		  map((response) => response),
-		  catchError((error) => {
-			console.log(error);
+		  catchError(() => {
 			return of(workspaceData);
 		  })
 		)

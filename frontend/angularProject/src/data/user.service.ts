@@ -17,4 +17,9 @@ export class UserService {
 	getUserSettings(): Observable<any> {
 		return this.http.get<any>(this.ENDPOINTS.USER.GET.GET_USER_SETTINGS)
 			.pipe(map(event => event.json()));		}
+
+	getAllUsers(): Observable<any> {
+		return this.http.get<any>(this.ENDPOINTS.USER.GET.GET_ALL_USERS)
+			.pipe(map(event => event.json()));		}
+		
 }

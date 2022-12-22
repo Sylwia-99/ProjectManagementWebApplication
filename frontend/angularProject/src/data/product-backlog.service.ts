@@ -11,14 +11,12 @@ import {
   TaskUpdateRequest,
 } from '../interfaces/product-backlog';
 import { EndpointUtilService } from 'src/app/services/endpoint-util.service';
-import { PRODUCT_BACKLOG, TASK } from '../core/_database/product-backlog';
+import { PRODUCT_BACKLOG } from '../core/_database/product-backlog';
 import { ENDPOINTS } from '../constants/endpoints.data';
 
 @Injectable()
 export class ProductBacklogService {
   private readonly ENDPOINTS = ENDPOINTS;
-
-  readonly taskMock = TASK;
 
   constructor(private http: HttpClient) {}
 
@@ -76,7 +74,8 @@ export class ProductBacklogService {
 
   createTask(
     taskData: TaskCreateRequest,
-    [personUUID, workspaceUUID]: string[]
+    personUUID: string,
+    workspaceUUID: string
   ): Observable<Task> {
     const endpoint = `${EndpointUtilService.prepareEndpoint(
       this.ENDPOINTS.PRODUCT_BACKLOG.POST.CREATE_TASK,
@@ -97,44 +96,34 @@ export class ProductBacklogService {
     body: TaskUpdateRequest,
     [personUUID, sprintUUID]: string[]
   ): Observable<unknown> {
-    // const endpoint = `${EndpointUtilService.prepareEndpoint(
-    //   this.ENDPOINTS.PRODUCT_BACKLOG.PUT.MOVE_TASK_TO_SPRINT,
-    //   {
-    //     'user-uuid': personUUID,
-    //     'sprint-uuid': sprintUUID,
-    //   }
-    // )}`;
-
-    //   return this.http
-    //     .patch<any>(endpoint, body)
-    //     .pipe(map((response) => response.json()));
-    // }
-
-    const response = { status: 204 };
-
-    let obs = new Observable((subscriber) => {
-      setTimeout(() => {
-        subscriber.next(response);
-        subscriber.complete();
-      }, 20);
-    });
-
-    return obs;
-  }
-
-  getTask(uuid: string): Observable<Task> {
     const endpoint = `${EndpointUtilService.prepareEndpoint(
-      this.ENDPOINTS.PRODUCT_BACKLOG.GET.GET_TASK,
-      { 'task-uuid': uuid }
+      this.ENDPOINTS.PRODUCT_BACKLOG.PUT.MOVE_TASK_TO_SPRINT,
+      {
+        'user-uuid': personUUID,
+        'sprint-uuid': sprintUUID,
+      }
     )}`;
 
-    return this.http.get<Task>(endpoint).pipe(
-      map((response) => response),
-      catchError((error) => {
-        console.log(error);
-        return of(this.taskMock);
-      })
-    )
+    return this.http
+      .patch<any>(endpoint, body)
+      .pipe(map((response) => response.json()),
+      catchError(() => {
+        return of(body);
+    }));
+  }
+
+  getTask(uuid: string): Observable< Task> {
+      const backlogTask = PRODUCT_BACKLOG[0].backlog!.find(el=> el.uuid === uuid) as Task; 
+      let sprintTask = null; 
+      PRODUCT_BACKLOG[0].sprints!.forEach((el)=>{
+        const task = el.tasks?.find(task=> task.uuid === uuid)
+        if(task) {
+          sprintTask =  task
+          return
+        }
+      });
+      const task = backlogTask ?? sprintTask
+      return of(task);
   }  
 
   
@@ -142,17 +131,36 @@ export class ProductBacklogService {
     taskData: Task,
     taskUuid: string
   ): Observable<Task> {
-    const endpoint = `${EndpointUtilService.prepareEndpoint(
-      this.ENDPOINTS.PRODUCT_BACKLOG.PUT.EDIT_TASK,
-      { 'task-uuid': taskUuid }
-    )}`;
-
-    return this.http.put<Task>(endpoint, taskData).pipe(
-      map((response) => response),
-      catchError((error) => {
-        console.log(error);
+        const backlogTaskIndex = PRODUCT_BACKLOG[0].backlog!.findIndex(el=> el.uuid === taskUuid); 
+        if(backlogTaskIndex)
+          PRODUCT_BACKLOG[0]!.backlog![backlogTaskIndex] = taskData;
+        else {
+          PRODUCT_BACKLOG[0].sprints!.forEach((el)=> {
+            const sprintTaskIndex = el.tasks?.findIndex(task=>task.uuid === taskUuid)
+            if(sprintTaskIndex && sprintTaskIndex > 0){
+              PRODUCT_BACKLOG[0].sprints!.forEach((sprint)=>sprint!.tasks![sprintTaskIndex] = taskData)
+              return
+            }
+          }) ;
+        }
         return of(taskData);
-      })
-    )
   }
+
+  removeTask(
+    taskUuid: string
+  ) {
+    console.log(taskUuid)
+      const backlogTaskIndex = PRODUCT_BACKLOG[0].backlog!.findIndex(el=> el.uuid === taskUuid); 
+      if(backlogTaskIndex)
+      PRODUCT_BACKLOG[0]!.backlog!.splice(backlogTaskIndex, 1);
+      else
+        PRODUCT_BACKLOG[0].sprints!.forEach((el)=> {
+            const index = el.tasks?.findIndex(el=>el.uuid === taskUuid)
+            if(index && index > 0){
+              PRODUCT_BACKLOG[0].sprints!.forEach((el)=> el!.tasks!.splice(index, 1))
+              return
+            }
+          }) ;
+  }
+
 }
