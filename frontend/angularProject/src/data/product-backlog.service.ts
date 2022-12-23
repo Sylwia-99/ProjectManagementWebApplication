@@ -151,12 +151,12 @@ export class ProductBacklogService {
   ) {
     console.log(taskUuid)
       const backlogTaskIndex = PRODUCT_BACKLOG[0].backlog!.findIndex(el=> el.uuid === taskUuid); 
-      if(backlogTaskIndex)
+      if(backlogTaskIndex != -1)
       PRODUCT_BACKLOG[0]!.backlog!.splice(backlogTaskIndex, 1);
       else
         PRODUCT_BACKLOG[0].sprints!.forEach((el)=> {
             const index = el.tasks?.findIndex(el=>el.uuid === taskUuid)
-            if(index && index > 0){
+            if(index != undefined && index >= 0){
               PRODUCT_BACKLOG[0].sprints!.forEach((el)=> el!.tasks!.splice(index, 1))
               return
             }
