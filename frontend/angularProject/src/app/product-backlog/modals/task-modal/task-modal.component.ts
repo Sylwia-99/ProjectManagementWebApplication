@@ -57,7 +57,9 @@ export class TaskModalComponent implements OnInit{
   save() {
     if(this.taskForm.valid){
       let taskCreateRequest: TaskCreateRequest = this.taskForm.value
-      this.productBacklogService.createTask(taskCreateRequest,["workspace-id"])
+      let workspaceUuid: string = '';
+      let personUuid: string = '';
+      this.productBacklogService.createTask(taskCreateRequest, personUuid, workspaceUuid)
         .subscribe((task: Task)=>  
           {
             this.dialogRef.close(task);

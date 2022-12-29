@@ -1,7 +1,11 @@
+import { ENVIRONMENT } from "src/app/environments/environments";
+
 export const ENDPOINTS = {
   USER: {
     GET: {
       GET_USER_SETTINGS: `${window.location.origin}/user/user-settings`,
+      GET_ALL_USERS: 	`http://localhost:8080/auth/admin/realms/master/users?briefRepresentation=true&first=0&max=20`
+
     },
     POST: {},
     PUT: {},
@@ -37,7 +41,9 @@ export const ENDPOINTS = {
       MOVE_TASK_TO_SPRINT: `${window.location.origin}/product-backlog/{user-uuid}/task/{task-uuid}/sprint/{sprint-uuid}`,
       EDIT_TASK: `${window.location.origin}/product-backlog/{workspace-uuid}/task/{user-uuid}`,
     },
-    DELETE: {},
+    DELETE: {    
+      DELETE_TASK: `${window.location.origin}/product-backlog/task/{task-uuid}`,
+  },
     PATCH: {},
   },
 };

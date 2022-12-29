@@ -26,7 +26,7 @@
     <div class="product-backlog-content">
       <div
         *ngIf="
-          productBacklog?.backlog?.length === 0 ||
+          productBacklog?.backlog?.length === 0 &&
             productBacklog?.sprints?.length === 0 ||
             !isProductBacklogVisible;
           else productBacklogList
@@ -66,6 +66,7 @@
               <product-backlog-task
                 [name]="sprintTask.name"
                 [uuid]="sprintTask.uuid"
+                [isSprintTask]="true"
                 (callbackRefreshProductBacklog)="this.refreshProductBacklog()"
               ></product-backlog-task>
             </li>

@@ -72,5 +72,6 @@ export class ProductBackolgWorkspaceComponent {
 
   refreshProductBacklog(): void {
     this.callbackRefreshProductBacklog.emit();
-    }
+  }
+
 }

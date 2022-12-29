@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 import { WorkSpace } from 'src/interfaces/workspace';
-import { DOTS } from 'src/constants/constants.data';
+import { DOTS, LOCAL_STORAGE } from 'src/constants/constants.data';
 import { AuthenticationService } from '../services/authentication.service';
 import { WorkspaceService } from "../../data/work-space.service"
 import { WorkSpaceModalComponent } from '../work-space-modal/work-space-modal.component';
@@ -27,7 +27,8 @@ export class HomeComponent implements OnInit {
     ){}
 
 	ngOnInit(): void {
-    this.workspaceService.getUserWorkSpace(["user-id"]).subscribe((res:any)=>{
+    const userUuid = LOCAL_STORAGE.USER_ID;
+    this.workspaceService.getUserWorkSpace(userUuid).subscribe((res:any)=>{
       this.workspace = res.WORK_SPACE;
     })
 	}
