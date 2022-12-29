@@ -20,12 +20,6 @@ export class ProductBackolgTaskComponent {
 
   @Output() callbackRefreshProductBacklog: EventEmitter<any> =
   new EventEmitter();
- 
-  @Output() movedTaskToSprint: EventEmitter<any> =
-  new EventEmitter();
-
-  @Output() editedTask: EventEmitter<Task> =
-  new EventEmitter();
 
   readonly dots = DOTS;
 
@@ -34,7 +28,7 @@ export class ProductBackolgTaskComponent {
     private productBacklogService: ProductBacklogService
   ) { }
 
-  moveTaskToSprint(uuid: string): void {
+  moveTaskToSprint(taskUuid: string): void {
     const dialog = this.dialogRef.open(MoveTaskToSprintModalComponent, {
       data: {
         name: this.name,
@@ -46,7 +40,11 @@ export class ProductBackolgTaskComponent {
 
     dialog.afterClosed().subscribe((result) => {
       if(result)
-        this.movedTaskToSprint.emit(result)
+        this.productBacklogService.moveTaskToSprint(taskUuid, result).subscribe(() => {
+          this.callbackRefreshProductBacklog.emit();
+        })
+
+      
     });
   }
 
@@ -65,9 +63,10 @@ export class ProductBackolgTaskComponent {
 
         dialog.afterClosed().subscribe((result: Task) => {
           if(result)
-            task = result 
-            this.productBacklogService.editTask(result, uuid).subscribe((result: Task) => {
-              this.editedTask.emit(result)
+              result.uuid = uuid          
+              task = result 
+              this.productBacklogService.editTask(result).subscribe(() => {
+                this.callbackRefreshProductBacklog.emit();
             })
         });
       });

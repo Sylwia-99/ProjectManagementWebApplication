@@ -50,7 +50,6 @@
           <product-backlog-task
             [name]="backlogTask.name"
             [uuid]="backlogTask.uuid"
-            (editedTask)="editTask($event)"
             (callbackRefreshProductBacklog)="this.refreshProductBacklog()"
           ></product-backlog-task>
         </li>
@@ -68,7 +67,6 @@
                 [name]="sprintTask.name"
                 [uuid]="sprintTask.uuid"
                 [isSprintTask]="true"
-                (editedTask)="editTask($event)"
                 (callbackRefreshProductBacklog)="this.refreshProductBacklog()"
               ></product-backlog-task>
             </li>

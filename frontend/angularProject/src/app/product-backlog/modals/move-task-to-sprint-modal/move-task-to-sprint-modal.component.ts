@@ -1,9 +1,8 @@
-import { Component, Inject, Input, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
-import { ProductBacklogService } from 'src/data/product-backlog.service';
-import { Sprint, TaskUpdateRequest } from 'src/interfaces/product-backlog';
+import { Sprint } from 'src/interfaces/product-backlog';
 import { SPRINTS } from 'src/core/_database/product-backlog';
 
 @Component({
@@ -27,17 +26,11 @@ export class MoveTaskToSprintModalComponent {
     @Inject(MAT_DIALOG_DATA) public data: any,
     public dialogRef: MatDialogRef<MoveTaskToSprintModalComponent>,
     private builder: FormBuilder,
-    private productBacklogService: ProductBacklogService
   ) {}
 
   save() {
-    if (this.sprintForm.valid) {
-      let moveTaskToSprint: TaskUpdateRequest = this.sprintForm.value;
-      this.productBacklogService
-        .moveTaskToSprint(moveTaskToSprint, ['personUUID', this.data.uuid])
-        .subscribe((result) => {          
-          this.dialogRef.close(result);
-        });
+    if (this.sprintForm.valid) {            
+      this.dialogRef.close(this.sprint.value);
     } else {
       this.isInvalidFlag = true;
     }

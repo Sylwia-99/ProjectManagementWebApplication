@@ -93,23 +93,19 @@ export class ProductBacklogService {
   }
 
   moveTaskToSprint(
-    body: TaskUpdateRequest,
-    [personUUID, sprintUUID]: string[]
-  ): Observable<unknown> {
-    const endpoint = `${EndpointUtilService.prepareEndpoint(
-      this.ENDPOINTS.PRODUCT_BACKLOG.PUT.MOVE_TASK_TO_SPRINT,
-      {
-        'user-uuid': personUUID,
-        'sprint-uuid': sprintUUID,
+    taskUuid: string,
+    sprintUuid: string
+  ): Observable<string> {
+      const srintIndex = PRODUCT_BACKLOG[0].sprints!.findIndex(el=>el.uuid === sprintUuid)
+      if(srintIndex != undefined && srintIndex >= 0){
+        this.getTask(taskUuid).subscribe((task: Task) =>  {
+          PRODUCT_BACKLOG[0].sprints![srintIndex].tasks!.push(task)
+        })
       }
-    )}`;
-
-    return this.http
-      .patch<any>(endpoint, body)
-      .pipe(map((response) => response.json()),
-      catchError(() => {
-        return of(body);
-    }));
+      const backlogTaskIndex = PRODUCT_BACKLOG[0].backlog!.findIndex(el=> el.uuid === taskUuid); 
+      if(backlogTaskIndex!= -1)
+      PRODUCT_BACKLOG[0]!.backlog!.splice(backlogTaskIndex, 1);
+    return of(sprintUuid);
   }
 
   getTask(uuid: string): Observable< Task> {
@@ -129,16 +125,15 @@ export class ProductBacklogService {
   
   editTask(
     taskData: Task,
-    taskUuid: string
   ): Observable<Task> {
-        const backlogTaskIndex = PRODUCT_BACKLOG[0].backlog!.findIndex(el=> el.uuid === taskUuid); 
-        if(backlogTaskIndex)
-          PRODUCT_BACKLOG[0]!.backlog![backlogTaskIndex] = taskData;
+        const backlogTaskIndex = PRODUCT_BACKLOG[0].backlog!.findIndex(el=> el.uuid === taskData.uuid); 
+        if(backlogTaskIndex!= -1)
+          PRODUCT_BACKLOG[0]!.backlog!.splice(backlogTaskIndex, 1, taskData);
         else {
           PRODUCT_BACKLOG[0].sprints!.forEach((el)=> {
-            const sprintTaskIndex = el.tasks?.findIndex(task=>task.uuid === taskUuid)
-            if(sprintTaskIndex && sprintTaskIndex > 0){
-              PRODUCT_BACKLOG[0].sprints!.forEach((sprint)=>sprint!.tasks![sprintTaskIndex] = taskData)
+            const sprintTaskIndex = el.tasks?.findIndex(task=>task.uuid === taskData.uuid)
+            if(sprintTaskIndex != undefined && sprintTaskIndex >= 0){
+              PRODUCT_BACKLOG[0].sprints!.forEach((sprint)=>sprint!.tasks!.splice(sprintTaskIndex, 1,taskData))
               return
             }
           }) ;
@@ -149,7 +144,6 @@ export class ProductBacklogService {
   removeTask(
     taskUuid: string
   ) {
-    console.log(taskUuid)
       const backlogTaskIndex = PRODUCT_BACKLOG[0].backlog!.findIndex(el=> el.uuid === taskUuid); 
       if(backlogTaskIndex != -1)
       PRODUCT_BACKLOG[0]!.backlog!.splice(backlogTaskIndex, 1);

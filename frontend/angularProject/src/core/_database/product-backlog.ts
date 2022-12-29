@@ -165,19 +165,6 @@ export let PRODUCT_BACKLOG: ProductBacklog[] = [
 ];
 
 
-// export const TASK: Task = 
-//   {
-//     uuid: '0-0-0-1',
-//     name: 'Nazwa zadania',
-//     description:
-//       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a ante mi. Duis fermentum rutrum nunc, a aliquam sapien vehicula quis. Morbi malesuada velit aliquam, tristique dolor vel, rhoncus felis. Suspendisse aliquet tempus massa, interdum mattis metus ullamcorper sit amet. Phasellus laoreet, lacus vel pellentesque consequat, lectus purus imperdiet nisl, ut feugiat justo turpis volutpat magna. Suspendisse convallis felis est, vitae gravida sapien eleifend rhoncus. In feugiat a velit sed iaculis. Ut a velit a ex aliquet interdum non vel dui. Phasellus lorem eros, semper eu rhoncus in, mattis at diam.',
-//     userUuid: "0-0-0-1",
-//     userFullName: " Sylwia Mosur",
-//     acceptanceCriteria: 'Lorem ipsum dolor sit amet, consectetur', 
-//     status: StatusType.TO_DO,
-//     storyPoints: 3
-//   }
-
 export const STATUSES = [
   {
     label: 'To do',
@@ -240,22 +227,5 @@ export const SPRINTS: Sprint[] = [
     description: 'Utworzenie logowania/rejestracji i widoku strony głównej.',
     startDate: '2022-01-07',
     endDate: '2022-01-14',
-  },
-  {
-    uuid: '0-0-0-3',
-    name: 'Sprint 3',
-    goal: 'Utworzenie widoku przestrzeni roboczej',
-    description: 'Utworzenie widoku przestrzeni roboczej',
-    startDate: '2022-01-14',
-    endDate: '2022-01-21',
-  },
-  {
-    uuid: '0-0-0-4',
-    name: 'Sprint 4',
-    goal: 'Utworzenie widoku Sprintu, przeniesienie zadania do sprintu i utworzenie zadania oraz jego podgląduu',
-    description:
-      'Utworzenie widoku Sprintu, przeniesienie zadania do sprintu i utworzenie zadania oraz jego podgląduu',
-    startDate: '2022-01-21',
-    endDate: '2022-01-28',
   },
 ];

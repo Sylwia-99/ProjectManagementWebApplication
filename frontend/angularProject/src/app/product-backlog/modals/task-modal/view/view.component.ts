@@ -18,7 +18,6 @@ export class ViewComponent {
   ) { 
     if(this.data)
       this.task = this.data
-    console.log(this.task)
   }
 
   close() {
