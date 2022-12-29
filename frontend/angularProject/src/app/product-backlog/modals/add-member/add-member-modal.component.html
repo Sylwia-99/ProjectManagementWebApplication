@@ -3,7 +3,7 @@
 
 <mat-dialog-content [formGroup]="memberForm">
   <div class="row">
-    <mat-select *ngIF="users" >
+    <mat-select *ngIf="users" >
       <mat-option *ngFor="let user of users" value="user.uuid" >{{user.name+ " " + user.surname}}</mat-option>
     </mat-select>
   </div>
