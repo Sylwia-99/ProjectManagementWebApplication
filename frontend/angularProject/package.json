@@ -15,7 +15,14 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint && prettier -c .",
-    "lint:fix": "prettier --write ."
+    "lint:fix": "prettier --write .",
+    "clean:reports": "shx rm -rf cypress\\reports  && mkdir cypress\\reports && mkdir cypress\\reports\\mochareports",
+    "pretestCy": "npm run clean:reports",
+    "cy": "cypress run --browser chrome",
+    "combine-reports": "mochawesome-merge cypress/reports/mocha/*.json -o cypress/reports/mochareports/report.json",
+    "generate-report": "marge cypress/reports/mochareports/report.json -f report -o cypress/reports/mochareports",
+    "posttestCy": " npm run combine-reports && npm run generate-report",
+    "testCy": "npm run cy || npm run posttestCy"
   },
   "private": true,
   "dependencies": {
@@ -29,9 +36,9 @@
     "@angular/platform-browser": "^14.2.0",
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
+    "bootstrap": "^5.2.2",
     "keycloak-angular": "^12.1.0",
     "keycloak-js": "^19.0.3",
-    "bootstrap": "^5.2.2",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
@@ -42,12 +49,18 @@
     "@angular/compiler-cli": "^14.2.0",
     "@types/jasmine": "~4.0.0",
     "cypress": "^10.10.0",
+    "cypress-localstorage-commands": "^2.2.2",
+    "cypress-multi-reporters": "^1.6.2",
     "jasmine-core": "~4.3.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.2.2",
+    "mochawesome-report-generator": "^6.2.0",
+    "shx": "^0.3.4",
     "typescript": "~4.7.2"
   }
 }

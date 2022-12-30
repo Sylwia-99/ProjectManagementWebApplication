@@ -24,14 +24,54 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-//
-// declare global {
-//   namespace Cypress {
-//     interface Chainable {
-//       login(email: string, password: string): Chainable<void>
-//       drag(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
-//       dismiss(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
-//       visit(originalFn: CommandOriginalFn, url: string, options: Partial<VisitOptions>): Chainable<Element>
-//     }
-//   }
-// }
+
+declare global {
+  namespace Cypress {
+    interface Chainable {
+      viewportDesktop(): Chainable<void>;
+      viewportMobile(): Chainable<void>;
+      open(): Chainable<void>;
+      visitAndCheck(): Chainable<void>;
+      login(username: any, password: any): Chainable<void>;
+    }
+  }
+}
+
+import 'cypress-localstorage-commands';
+// import "cypress-file-upload"
+Cypress.Commands.add('viewportDesktop', () => {
+  cy.viewport(1920, 1080);
+});
+
+Cypress.Commands.add('viewportMobile', () => {
+  cy.viewport(375, 667);
+});
+
+Cypress.Commands.add('open', () => {
+  cy.clearLocalStorage();
+  cy.viewportDesktop();
+  cy.visit('/');
+  cy.visit('/login');
+});
+
+Cypress.Commands.add('visitAndCheck', () => {
+  cy.url().then((url) => {
+    cy.visit(url);
+    cy.url().should('include', '/auth/realms/master/protocol/openid-connect/');
+  });
+});
+
+Cypress.Commands.add('login', (username: string, password: string) => {
+  cy.session([username, password], () => {
+    cy.url().then((url) => {
+      cy.visit(url);
+      cy.url().should(
+        'include',
+        '/auth/realms/master/protocol/openid-connect/'
+      );
+    });
+    cy.get('#username').should('exist').clear().focus().type(username);
+    cy.get('#password').should('exist').focus().type(password);
+    cy.get('#kc-login').click();
+  });
+});

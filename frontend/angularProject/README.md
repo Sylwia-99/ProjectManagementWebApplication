@@ -25,3 +25,11 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Running Cypress tests in browser
+
+`npx cypress open`
+
+## Running Cypress tests in headless mode with HTML reports
+
+`npm run testCy` -> cypress/reports/mocareports/report.html -> PPM -> reveal in file explorer
